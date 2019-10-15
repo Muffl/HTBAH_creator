@@ -40,6 +40,9 @@ def create_app(config_class=Config):
     from app.auth import bp as auth_bp
     app.register_blueprint(auth_bp, url_prefix='/auth')
 
+    from app.creator import bp as creator_bp
+    app.register_blueprint(creator_bp, url_prefix='/creator')
+
     from app.main import bp as main_bp
     app.register_blueprint(main_bp)
 
@@ -64,7 +67,7 @@ def create_app(config_class=Config):
                 fromaddr='no-reply@' + app.config['MAIL_SERVER'],
                 toaddrs=app.config['ADMINS'], subject='Character Creator Failure',
                 credentials=auth, secure=secure)
-            mail_handler.setLevel(logging.ERROR)
+            mail_handler.setLevel(lAboutogging.ERROR)
             app.logger.addHandler(mail_handler)
 
         if not os.path.exists('logs'):

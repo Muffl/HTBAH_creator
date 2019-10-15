@@ -8,96 +8,6 @@ import jwt
 from sqlalchemy.dialects.mysql import INTEGER
 from app import db, login
 
-class boardgamelist(UserMixin, db.Model):
-    __tablename__ = 'boardgamelist'
-    id = db.Column(db.Integer, primary_key=True, unique = True)
-    name = db.Column(db.String(120))
-    bgg_id = db.Column(db.String(80))
-    extension = db.Column(db.Integer,db.ForeignKey('boardgamelist.id'))
-    image_resource = db.Column(db.String(160))
-    player_min=db.Column(db.Integer)
-    player_best=db.Column(db.Integer)
-    player_max=db.Column(db.Integer)
-    time_min=db.Column(db.Integer)
-    time_max=db.Column(db.Integer)
-    time_avg=db.Column(db.Integer)
-    lastplayed=db.Column(db.DateTime, default=datetime.utcnow)
-    owner_id_fk = db.Column(db.Integer, db.ForeignKey('user.id'))
-    status = db.Column(db.Integer, default = 1)
-
-    def __repr__(self):
-        return '<Boardgame: {} -> bgg_id: {} owner_id_fk:{} > <{} {} {}>'.format(self.name, self.bgg_id, self.owner_id_fk, self.player_min, self.player_max, self.player_best)
-
-followers = db.Table(
-    'followers',
-    db.Column('follower_id', db.Integer, db.ForeignKey('user.id')),
-    db.Column('followed_id', db.Integer, db.ForeignKey('user.id'))
-)
-
-class Polloption(db.Model):
-    __tablename__ = 'polloption'
-    id = db.Column(db.Integer, primary_key=True, unique = True)
-    poll = db.Column(db.Integer, db.ForeignKey('poll.id'))
-    #options = db.Column(db.Integer, db.ForeignKey('boardgamelist.id'))
-    vote = db.Column(db.Integer())
-    participant = db.Column(db.Integer, db.ForeignKey('user.id'))
-    #votetime = db.Column(db.DateTime, default=datetime.utcnow)
-
-class Poll(db.Model):
-    __tablename__ = 'poll'
-    id = db.Column(db.Integer, primary_key=True, unique = True)
-    title = db.Column(db.Text, default = "title")
-    created = db.Column(db.DateTime, default=datetime.utcnow)
-    deadline = db.Column(db.DateTime, default=datetime.utcnow)
-    creator = db.Column(db.Integer, db.ForeignKey('user.id'))
-    event = db.Column(db.Integer, db.ForeignKey('event.id'))
-    chosen = db.Column(db.Integer)
-    votes = db.relationship('Polloption', backref='masterpoll')
-
-
-class Event(db.Model):
-    __tablename__ = 'event'
-    id = db.Column(db.Integer, primary_key=True, unique = True)
-    name = db.Column(db.Text, default = "event")
-    type = db.Column(db.String(120), default="common")
-    event_comment =  db.Column(db.Text, default = "A classic boardgame evening")
-    event_image =  db.Column(db.Text, default = "userimage/event/default.jpg")
-    main_text = db.Column(db.Text, default="Event description")
-    sub_text = db.Column(db.Text, default="Further information")
-    location = db.Column(db.Text, default="t.b.a.")
-    dateofevent = db.Column(db.DateTime, default=datetime.utcnow)
-    max_player = db.Column(db.Integer)
-    max_games = db.Column(db.Integer)
-    player = db.relationship('User', backref='eventparticipant')
-    eventpoll = db.relationship('Poll', backref='masterevent')
-    #games = db.relationship('boardgamelist', backref='eventgames') # has to be replaced by a poll???
-    player_comments = db.relationship('Comment', backref='parentevent', lazy='dynamic')
-    event_host = db.Column(db.Integer, db.ForeignKey("user.id"))
-
-class Comment(db.Model):
-    __tablename__ = 'comment'
-    id = db.Column(db.Integer, primary_key=True)
-    body = db.Column(db.String(140))
-    timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
-    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
-    event = db.Column(db.Integer, db.ForeignKey('event.id'))
-    category = db.Column(db.String(100))
-    language = db.Column(db.String(5))
-
-    def __repr__(self):
-        return '<Comment {}>'.format(self.body)
-
-class Blog(db.Model):
-    __tablename__ = 'blog'
-    id = db.Column(db.Integer, primary_key=True)
-    user = db.Column("user_id", db.Integer, db.ForeignKey("user.id"))
-    category = db.Column(db.String(150))
-    title = db.Column(db.String(150))
-    text = db.Column(db.String(800))
-    created_date = db.Column(db.DateTime, default=datetime.utcnow)
-    image_name = db.Column(db.String(200), default="defaultavatar.jpg")
-    #liked = db.relationship('User', backref='liked')
-    #downloads = db.relationship('Download', backref='blogentry')
 
 class Download(db.Model):
     __tablename__ = 'download'
@@ -174,16 +84,10 @@ class User(UserMixin, db.Model):
     real_name = db.Column(db.String(200), default="Nobody")
     image_name = db.Column(db.String(200), default="defaultavatar.jpg")
     posts = db.relationship('Post', backref='author', lazy='dynamic')
-    blog = db.relationship('Blog', backref='author', lazy='dynamic')
     downloads = db.relationship('Download', backref='author', lazy='dynamic',cascade="all,delete")
     comments = db.relationship('Comment', backref='author', lazy=True)
     about_me = db.Column(db.String(140))
     last_seen = db.Column(db.DateTime, default=datetime.utcnow)
-    followed = db.relationship('User', secondary=followers,
-                               primaryjoin=(followers.c.follower_id == id),
-                               secondaryjoin=(followers.c.followed_id == id),
-                               backref=db.backref('followers', lazy='dynamic'), lazy='dynamic'
-                               )
 
     role = db.relationship("Role",
                      secondary=usertorole,
@@ -231,25 +135,6 @@ class User(UserMixin, db.Model):
         return 'https://www.gravatar.com/avatar/{}?d=identicon&s={}'.format(
             digest, size)
 
-    def follow(self, user):
-        if not self.is_following(user):
-            self.followed.append(user)
-
-    def unfollow(self, user):
-        if self.is_following(user):
-            self.followed.remove(user)
-
-    def is_following(self, user):
-        return self.followed.filter(
-            followers.c.followed_id == user.id).count() > 0
-
-    def followed_posts(self):
-        followed = Post.query.join(
-            followers, (followers.c.followed_id == Post.user_id)).filter(
-                followers.c.follower_id == self.id)
-        own = Post.query.filter_by(user_id=self.id)
-        return followed.union(own).order_by(Post.timestamp.desc())
-
     def get_reset_password_token(self, expires_in=600):
         return jwt.encode(
             {'reset_password': self.id, 'exp': time() + expires_in},
@@ -269,14 +154,3 @@ def verify_reset_password_token(token):
 @login.user_loader
 def load_user(id):
     return User.query.get(int(id))
-
-
-class Post(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    body = db.Column(db.String(140))
-    timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
-    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
-    language = db.Column(db.String(5))
-
-    def __repr__(self):
-        return '<Post {}>'.format(self.body)

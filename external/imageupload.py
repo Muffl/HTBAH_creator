@@ -6,7 +6,7 @@ from flask_login import current_user, login_required
 from flask_babel import _, get_locale
 from guess_language import guess_language
 from app import db
-from app.models import User, Post, Event as db_event, Blog as db_blog, Download
+from app.models import *
 #from app.translate import translate
 
 import urllib.request

@@ -48,22 +48,16 @@
           <a class="nav-link active" href="{{ url_for('main.index')}}">Home</a>
         </li>
 
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="{{ url_for('boardgame.boardgame')}}" id="navbarDropdown" role="button" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">
-            Coding
-          </a>
-        </li>
 
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="{{ url_for('boardgame.boardgame')}}" id="navbarDropdown" role="button" data-toggle="dropdown"
+          <a class="nav-link dropdown-toggle" href="{{ url_for('creator.creator_index')}}" id="navbarDropdown" role="button" data-toggle="dropdown"
             aria-haspopup="true" aria-expanded="false">
             HTBAH
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="{{ url_for('creator.create')}}">{{_('Creator')}}</a>
-                <a class="dropdown-item" href="{{ url_for('creator.collection')}}">{{_('Collection')}}</a>
-                <a class="dropdown-item" href="{{ url_for('boardgame.bg_download')}}">{{_('Download')}}</a>
+                <a class="dropdown-item" href="{{ url_for('creator.creator_create')}}">{{_('Creator')}}</a>
+                <a class="dropdown-item" href="{{ url_for('creator.creator_collection')}}">{{_('Collection')}}</a>
+                <a class="dropdown-item" href="{{ url_for('creator.creator_download')}}">{{_('Download')}}</a>
           </div>
         </li>
 
@@ -76,16 +70,17 @@
         </li>
         {% if current_user.is_authenticated %}
                 <a class="dropdown-item" href="{{ url_for('usercenter.usermanagement', username=current_user.username) }}">{{ _('Edit Profile')  }}</a>
-            {% else %}
+
             <li class="nav-item">
               <a class="nav-link active" href="{{ url_for('auth.logout')}}">{{_('Logout')}}</a>
             </li>
-            {% endif %}
-          {% else %}
+            {% else %}
+
+
             <li class="nav-item">
               <a class="nav-link active" href="{{ url_for('auth.login')}}">{{_('Login')}}</a>
             </li>
-          {% endif %}
+            {% endif %}
       </ul>
     </div>
     <button type="button" class="btn btn-b-n navbar-toggle-box-collapse d-none d-md-block" data-toggle="collapse"
@@ -139,7 +134,7 @@
                   <a href="{{ url_for('about.about')}}">About</a>
                 </li>
                 <li class="list-inline-item">
-                  <a href="{{ url_for('creator.collection')}}">Collection</a>
+                  <a href="{{ url_for('creator.creator_collection')}}">Collection</a>
                 </li>
                 <li class="list-inline-item">
                   <a href="{{ url_for('about.contact')}}">Contact</a>
