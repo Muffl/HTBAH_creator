@@ -1,0 +1,133 @@
+{% extends "base.html" %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block app_content %}
+
+<section class="intro-single">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 col-lg-8">
+        <div class="title-single-box">
+          <h1 class="title-single">UserCenter</h1>
+          <span class="color-text-a">Edit Role</span>
+        </div>
+      </div>
+      <div class="col-md-12 col-lg-4">
+        <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+              <a href="#">{{ title }}</a>
+            </li>
+            <li class="breadcrumb-item active" aria-current="page">
+              Profile
+            </li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="card-box-c foo">
+        <div class="card-header-c d-flex">
+          <div class="card-box-ico">
+            <div class="card-title-c align-self-center row">
+              <span class="fa fa-edit"></span>
+            </div>
+            {% if role.rolename.lower().find("admin") >= 0 %}
+              <img src="{{ url_for('static', filename='img/role.png')}}" alt="" class="img-d img-fluid">
+            {% else %}
+              {% if role.rolename.lower().find("test") >= 0 %}
+                <img src="{{ url_for('static', filename='img/explode_user.png')}}" alt="" class="img-d img-fluid">
+              {% else  %}
+                {% if role.rolename.lower().find("guest") >= 0 %}
+                <img src="{{ url_for('static', filename='img/scarlet.png')}}" alt="" class="img-d img-fluid">
+                {% else  %}
+                <img src="{{ url_for('static', filename='img/mrrobot.png')}}" alt="" class="img-d img-fluid">
+                {% endif  %}
+              {% endif  %}
+            {% endif  %}
+            <h2 class="title-c">{{role.rolename}}</h2>
+          </div>
+        </div>
+        <div class="card-body-c">
+          <p class="content-c">
+            <form role="form" class="form-inline" method="post">
+                {{ form.csrf_token() }}
+              <div class="row inline">
+                {{form.rolename.label}}{{form.rolename(class_="form-control", value=role.rolename)}}
+                {{form.old_rolename(class_="form-control", value=role.rolename, hidden=true)}}
+                <button type="submit" class="btn btn-success"> Modify </button>
+              </div>
+          </form>
+          </p>
+        </div>
+        <div class="card-footer-c">
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="row">
+        <div class="container">
+          <div>
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th scope="col">Role</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for item in role.permission %}
+                <tr>
+                  <td scope="row">
+                    <a href="{{url_for('usercenter.permissionmanagement', permission=item.permissionname)}}" class="link-two"> {{item.permissionname}}</a>
+                  </td>
+                  <td>
+                    <a href="{{url_for('usercenter.usermanagement_revoke_permission',permission=item.id, role=role.rolename)}}" class="link-two"><span class="fa fa-remove"></span></a>
+                  </td>
+                </tr>
+                {% endfor %}
+                <tr>
+                  <td  scope="row"></td>
+                  </tr>
+                <tr>
+                  <td scope="row">
+                    <form role="form" class="form-inline" method="post">
+                        {{ form2.csrf_token() }}
+                      <div class="row">
+                        {{_("Add Permission")}}
+                        </div>
+                      <div class="row inline">
+                        {{form2.permissiontoadd(class_="form-control")}}
+                        </div>
+                        <div class="row inline">
+
+                        <button type="submit" class="btn btn-success"> Add </button>
+                      </div>
+                  </form>
+                  </td>
+                  </tr>
+              </tbody>
+            </table>
+            <hr>
+            <!-- <form role="form" class="form-inline" method="post">
+            <div class="row inline">
+              { { form.csrf_token() } }
+            { { form2.permissiontoadd(class_="form-control", size=1, choices=[0,'127.0.0.1'], value='127.0.0.1') } }
+              <button type="submit" class="btn btn-success"> Add </button>
+            </div>
+            </form> -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+{% endblock %}

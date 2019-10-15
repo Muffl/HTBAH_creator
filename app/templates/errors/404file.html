@@ -1,0 +1,6 @@
+{% extends "base.html" %}
+
+{% block app_content %}
+    <h1>{{ _('Your file has not been found. <br> Maybe is is still processed') }}</h1>
+    <p><a href="{{ url_for('main.index') }}">{{ _('Back') }}</a></p>
+{% endblock %}

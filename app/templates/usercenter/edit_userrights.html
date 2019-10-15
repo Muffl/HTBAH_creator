@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block app_content %}
+<h2>{{ _('USer Rights') }}</h2>
+<div class="">
+  <div class="">
+    <p> {{_("User Management")}}</p>
+  </div>
+
+  <form role="form" class="form-inline" method="post">
+    <div class="form-group">
+      {{ form.hidden_tag() }}
+      <table>
+        <tr><td>
+          {{form.boardgame.label}}</td><td>{{ form.boardgame(class_="form-control") }}
+        </td></tr>
+        <tr><td>
+          {{form.painting.label}}</td><td>{{ form.painting(class_="form-control") }}
+        </td></tr>
+        <tr><td>
+          {{form.td_printing.label}}</td><td>{{ form.td_printing(class_="form-control") }}
+        </td></tr>
+        <tr><td>
+          {{form.usermanagement.label}}</td><td>{{ form.usermanagement(class_="form-control") }}
+        </td></tr>
+      </table>
+
+
+      <button type="submit" class="btn btn-success"> Save </button>
+      <br>
+      <b>* required information</b>
+    </div>
+  </form>
+
+  <table class="domainrow">
+    <tr ><th>Role </th><th>Role Name </th><th>Comment</th></tr>
+    {% for entry in roles %}
+    <!--<div class="entry">-->
+    <tr><td>{% print entry.role %}</td><td>{% print entry.rolename %}</td><td>{% print entry.comment %}</td></tr>
+    <!--</div>-->
+    {% endfor %}
+  </table>
+
+
+  <!-- <div class="s">
+  {% if current_user.is_authenticated %}
+
+  <form role="form" class="form-inline" method="post">
+  <div class="form-group">
+  { { form.hidden_tag() } }
+  { { form.bgg_id.label } }*{ { form.bgg_id(size=32, class_="form-control", value="12345")} }
+  { { form.owner.label } }*{ { form.owner(size=32, class_="form-control", value="Owner")} }
+  { { form.owner.label } }*{ { form.contact(size=32, class_="form-control", value="Contact")} }
+  { {form.public.label} }{ {form.public(class_="form-control")} }
+  <button type="submit" class="btn btn-success"> Save </button>
+  <br>
+  <b>* required information</b>
+</div>
+</form>
+
+{% endif %}
+</div>
+-->
+{% endblock %}

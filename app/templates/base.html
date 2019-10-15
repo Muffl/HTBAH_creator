@@ -1,0 +1,200 @@
+{% extends 'bootstrap/base.html' %}
+{% block title %}
+    {% if title %}{{ title }} - Character Creator {% else %}{{ _(' ') }}{% endif %}
+{% endblock %}
+
+{% block styles %}
+<META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE">
+<meta content="HTBAH, Character Creator" name="keywords">
+<meta content="THE magic page about a lot of funny things" name="description">
+
+<link href="{{ url_for('static', filename='codewarrior.ico')}}" rel="icon">
+<link href="{{ url_for('static', filename='codewarrior.ico')}}" rel="apple-touch-icon">
+
+<link rel="stylesheet" href="{{ url_for('static', filename='library/bootstrap/css/bootstrap.min.css')}}">
+
+<link rel="stylesheet" href="{{ url_for('static', filename='library/timepicker/bootstrap-timepicker.min.css')}}">
+<link rel="stylesheet" href="{{ url_for('static', filename='library/font-awesome/css/font-awesome.min.css')}}">
+<link rel="stylesheet" href="{{ url_for('static', filename='library/animate/animate.min.css')}}">
+<link rel="stylesheet" href="{{ url_for('static', filename='library/ionicons/css/ionicons.min.css')}}">
+<link rel="stylesheet" href="{{ url_for('static', filename='library/owlcarousel/assets/owl.carousel.min.css')}}">
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+<link href="{{ url_for('static', filename='css/style.css')}}" rel="stylesheet">
+<link href="{{ url_for('static', filename='css/popup.css')}}" rel="stylesheet">
+{%  endblock %}
+
+{% block navbar %}
+<!--/ Nav Star /-->
+<nav class="navbar navbar-default navbar-trans navbar-expand-lg fixed-top">
+  <div class="container">
+    <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarDefault"
+      aria-controls="navbarDefault" aria-expanded="false" aria-label="Toggle navigation">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <a class="navbar-brand text-brand" href="{{ url_for('main.index') }}">
+      <img src="{{url_for('static', filename='codewarrior.png') }}" style=" width: 80px; max-height: 80px;  border-color: #2eca6a; border-style: solid; border-width: 2px;">
+      CODE<span class="color-b">warrior.de</span></a>
+    <button type="button" class="btn btn-link nav-search navbar-toggle-box-collapse d-md-none" data-toggle="collapse"
+      data-target="#navbarTogglerDemo01" aria-expanded="false">
+      <span class="fa fa-search" aria-hidden="true"></span>
+    </button>
+    <div class="navbar-collapse collapse justify-content-center" id="navbarDefault">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" href="{{ url_for('main.index')}}">Home</a>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="{{ url_for('boardgame.boardgame')}}" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Coding
+          </a>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="{{ url_for('boardgame.boardgame')}}" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            HTBAH
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="{{ url_for('creator.create')}}">{{_('Creator')}}</a>
+                <a class="dropdown-item" href="{{ url_for('creator.collection')}}">{{_('Collection')}}</a>
+                <a class="dropdown-item" href="{{ url_for('boardgame.bg_download')}}">{{_('Download')}}</a>
+          </div>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle"  href="{{ url_for('about.about') }}">{{ _('About') }}</a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item"  href="{{ url_for('about.about') }}">{{ _('About') }}</a>
+            <a class="dropdown-item" href="{{ url_for('about.contact')}}">{{_('Contact')}}</a>
+          </div>
+        </li>
+        {% if current_user.is_authenticated %}
+                <a class="dropdown-item" href="{{ url_for('usercenter.usermanagement', username=current_user.username) }}">{{ _('Edit Profile')  }}</a>
+            {% else %}
+            <li class="nav-item">
+              <a class="nav-link active" href="{{ url_for('auth.logout')}}">{{_('Logout')}}</a>
+            </li>
+            {% endif %}
+          {% else %}
+            <li class="nav-item">
+              <a class="nav-link active" href="{{ url_for('auth.login')}}">{{_('Login')}}</a>
+            </li>
+          {% endif %}
+      </ul>
+    </div>
+    <button type="button" class="btn btn-b-n navbar-toggle-box-collapse d-none d-md-block" data-toggle="collapse"
+      data-target="#navbarTogglerDemo01" aria-expanded="false">
+      <span class="fa fa-search" aria-hidden="true"></span>
+    </button>
+  </div>
+  <div class="row">
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+        {% for message in messages %}
+                <div class="alert alert-warning" role="alert">
+                  {{message}}
+                </div>
+        {% endfor %}
+    {% endif %}
+    {% endwith %}
+  </div>
+
+</nav>
+<!--/ Nav End /-->
+{% endblock %}
+
+{% block content %}
+
+        {# application content needs to be provided in the app_content block #}
+        {% block app_content %}{% endblock %}
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+                    <div class="alert alert-warning" role="alert">
+                      {{message}}
+                    </div>
+            {% endfor %}
+        {% endif %}
+        {% endwith %}
+
+
+
+<!-- ############################# FOOTER ################ -->
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+             <nav class="nav-footer">
+              <ul class="list-inline">
+                <li class="list-inline-item">
+                  <a href="#">Home</a>
+                </li>
+                <li class="list-inline-item">
+                  <a href="{{ url_for('about.about')}}">About</a>
+                </li>
+                <li class="list-inline-item">
+                  <a href="{{ url_for('creator.collection')}}">Collection</a>
+                </li>
+                <li class="list-inline-item">
+                  <a href="{{ url_for('about.contact')}}">Contact</a>
+                </li>
+                {% if current_user.is_authenticated %}
+                  <!-- if current_user.role == 5 -->
+                  <li class="list-inline-item">
+                    <a class="dropdown-item" href="{{ url_for('usercenter.usermanagement', username=current_user.username) }}">{{ _('Edit Profile')  }}</a>
+                  </li>
+                   {% endif %}
+                 <!-- % endif % -->
+              </ul>
+            </nav>
+             <div class="socials-a">
+              <ul class="list-inline">
+                <li class="list-inline-item">
+                  <a href="https://github.com/Nubsiknut">
+                    <i class="fa fa-github" aria-hidden="true"></i>
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div class="copyright-footer">
+              <p class="copyright color-text-a">
+                &copy; Copyright
+                <span class="color-a">CODEwarrior.de</span> All Rights Reserved.
+              </p>
+            </div>
+            <div class="credits">
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+{% endblock %}
+
+
+{% block scripts %}
+    {{ super() }}
+    {{ moment.include_moment() }}
+    {{ moment.lang(g.locale) }}
+    <script src="{{ url_for('static', filename='library/jquery/jquery.min.js')}}"></script>
+    <script src="{{ url_for('static', filename='library/jquery/jquery-migrate.min.js')}}"></script>
+    <script src="{{ url_for('static', filename='library/popper/popper.min.js')}}"></script>
+    <script src="{{ url_for('static', filename='library/bootstrap/js/bootstrap.min.js')}}"></script>
+    <script src="{{ url_for('static', filename='library/bootstrap/js/bootstrap-datepicker.js')}}"></script>
+    <script src="{{ url_for('static', filename='library/timepicker/bootstrap-timepicker.min.js')}}"></script>
+    <script src="{{ url_for('static', filename='library/easing/easing.min.js')}}"></script>
+    <script src="{{ url_for('static', filename='library/owlcarousel/owl.carousel.min.js')}}"></script>
+    <script src="{{ url_for('static', filename='library/scrollreveal/scrollreveal.min.js')}}"></script>
+    <!-- Contact Form JavaScript File -->
+    <script src="{{ url_for('static', filename='contactform/contactform.js')}}"></script>
+
+    <!-- Template Main Javascript File -->
+    <script src="{{ url_for('static', filename='js/main.js')}}"></script>
+
+    {% block app_scripts %}{% endblock %}
+{% endblock %}

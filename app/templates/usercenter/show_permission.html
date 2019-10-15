@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block app_content %}
+
+<section class="intro-single">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 col-lg-8">
+        <div class="title-single-box">
+          <h1 class="title-single">UserCenter</h1>
+          <span class="color-text-a">Manage Permission</span>
+        </div>
+      </div>
+      <div class="col-md-12 col-lg-4">
+        <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+              <a href="#">{{ title }}</a>
+            </li>
+            <li class="breadcrumb-item active" aria-current="page">
+              Collection
+            </li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+</section>
+  <!--/ Agents Grid Star /-->
+  <section class="agents-grid grid">
+    <div class="container">
+      <div class="row">
+          <div class="col-sm-12">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th scope="col">Permission</th>
+              <th>
+                <div class="row">
+              <a href="{{ url_for('usercenter.add_role') }}" class="link-two">  <span class="fa fa-plus"></span> Permission</a>
+              </div>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for entry in datalist %}
+            <tr>
+              <td scope="row">
+                <a href="{{ url_for('usercenter.permissionmanagement', permission=entry.permissionname) }}" class="link-two">{{entry.permissionname}}
+                  <br> </a>
+              </td>
+              <td></td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+    </div>
+  </section>
+  <!--/ Agents Grid End /-->
+
+{% endblock %}

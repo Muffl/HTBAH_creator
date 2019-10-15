@@ -1,0 +1,113 @@
+{% extends "base.html" %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block app_content %}
+
+<section class="intro-single">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 col-lg-8">
+        <div class="title-single-box">
+          <h1 class="title-single">UserCenter</h1>
+          <span class="color-text-a">Edit Profile</span>
+        </div>
+      </div>
+      <div class="col-md-12 col-lg-4">
+        <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+              <a href="#">{{ title }}</a>
+            </li>
+            <li class="breadcrumb-item active" aria-current="page">
+              Profile
+            </li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="card-box-c foo">
+        <div class="card-header-c d-flex">
+          <div class="card-box-ico">
+            <h2 class="title-c align-self-center">{{user.username}}<span class="fa fa-edit"></span></h2>
+            <img src="{{ url_for('static', filename=user.image_name)}}" alt="" class="img-d img-fluid" style="min-width: 100px; max-width: 300px; height: 200px;"><br>
+            <a href="{{ url_for('main.upload_image', target='user', user=user.username)}}">Upload Image</a>
+          </div>
+        </div>
+        <div class="card-body-c">
+
+          <form role="form" class="content-c form-inline" method="post">
+            {{ form.csrf_token() }}
+            <div class="row inline">
+              <table>
+                <tr>
+                  <td>{{form.username.label}} </td><td> {{form.username(class_="form-control", size=12, value=user.username)}}</td>
+                </tr><tr>
+                  <td>{{form.email.label}} </td><td> {{form.email(class_="form-control", size=12,value=user.email)}}</td>
+                </tr><tr>
+                  <td>{{form.name.label}}</td><td>  {{form.name(class_="form-control", size=12,value=user.real_name)}}</td>
+                </tr><tr><td></td><td><button type="submit" class="btn btn-success"> Modify </button></td></tr>
+              </table>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="row">
+        <div class="container">
+          <div>
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th scope="col">Role</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for item in user.role %}
+                <tr>
+                  <td scope="row">
+                    <a href="{{url_for('usercenter.rolemanagement', role=item.rolename)}}" class="link-two"> {{item.rolename}}</a>
+                  </td>
+                  <td>
+                    <a href="{{url_for('usercenter.usermanagement_revoke_role', username=user.username, role=item.id)}}" class="link-two"><span class="fa fa-remove"></span></a>
+                  </td>
+                </tr>
+                {% endfor %}
+                <tr>
+                  <td  scope="row"></td>
+                  </tr>
+                  <tr>
+                    <td scope="row">
+                      <form role="form" class="form-inline" method="post">
+                          {{ form2.csrf_token() }}
+                        <div class="row">
+                          {{_("Add Role")}}
+                          </div>
+                        <div class="row inline">
+                          {{form2.role(class_="form-control")}}
+                          </div>
+                          <div class="row inline">
+
+                          <button type="submit" class="btn btn-success"> Add </button>
+                        </div>
+                    </form>
+                    </td>
+                    </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+{% endblock %}

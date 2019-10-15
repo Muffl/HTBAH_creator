@@ -1,0 +1,131 @@
+{% extends "base.html" %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block app_content %}
+
+<section class="intro-single">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 col-lg-8">
+        <div class="title-single-box">
+          <h1 class="title-single">UserCenter</h1>
+          <span class="color-text-a">Manage User</span>
+        </div>
+      </div>
+      <div class="col-md-12 col-lg-4">
+        <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+              <a href="#">{{ title }}</a>
+            </li>
+            <li class="breadcrumb-item active" aria-current="page">
+              Collection
+            </li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+</section>
+  <!--/ Agents Grid Star /-->
+  <section class="agents-grid grid">
+    <div class="container">
+      <div class="row">
+        {% for entry in datalist %}
+        <div class="col-md-4">
+          <div class="card-box-d">
+            <div class="card-img-d">
+              <img src="{{ url_for('static', filename=entry.image_name)}}" alt="" class="img-d img-fluid">
+            </div>
+            <div class="card-overlay card-overlay-hover">
+              <div class="card-header-d">
+                <div class="card-title-d align-self-center">
+                  <h3 class="title-d">
+                    <a href="#" class="link-two">{{entry.username}}
+                      <br> </a>
+                  </h3>
+                </div>
+              </div>
+              <div class="card-body-d">
+
+                <div class="info-agents color-a">
+                  <p>
+                    <strong>Name: </strong>{{entry.real_name}}</p>
+                  <p>
+                    <strong>Email: </strong>{{entry.email}}</p>
+                      Role:
+                </div>
+                <p class="content-d color-text-a">
+                  {% for item in entry.role %}<br>
+                    {{item.rolename}}
+                  {% endfor %}
+                </p>
+              </div>
+              <div class="card-footer-d">
+                <div class="socials-footer d-flex justify-content-center">
+                  <ul class="list-inline">
+                    <li class="list-inline-item">
+                      <a href="{{ url_for('usercenter.usermanagement', username=entry.username) }}" class="link-one">
+                        <i class="fa fa-pencil" aria-hidden="true"></i>
+                      </a>
+                    </li>
+                    <li class="list-inline-item">
+                      <a href="{{ url_for('usercenter.usermanagement', username=entry.username) }}" class="link-one">
+                        <i class="fa fa-ban" aria-hidden="true"></i>
+                      </a>
+                    </li>
+                    <li class="list-inline-item">
+                      <a href="#" class="link-one">
+                        <i class="fa fa-instagram" aria-hidden="true"></i>
+                      </a>
+                    </li>
+                    <li class="list-inline-item">
+                      <a href="#" class="link-one">
+                        <i class="fa fa-pinterest-p" aria-hidden="true"></i>
+                      </a>
+                    </li>
+                    <li class="list-inline-item">
+                      <a href="{{url_for('usercenter.delete_user', userid=entry.id)}}" class="link-one">
+                        <i class="fa fa-remove" aria-hidden="true"></i>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+      <div class="row">
+        <div class="col-sm-12">
+          <nav class="pagination-a">
+            <ul class="pagination justify-content-end">
+              <li class="page-item disabled">
+                <a class="page-link" href="#" tabindex="-1">
+                  <span class="ion-ios-arrow-back"></span>
+                </a>
+              </li>
+              <li class="page-item">
+                <a class="page-link" href="#">1</a>
+              </li>
+              <li class="page-item active">
+                <a class="page-link" href="#">2</a>
+              </li>
+              <li class="page-item">
+                <a class="page-link" href="#">3</a>
+              </li>
+              <li class="page-item next">
+                <a class="page-link" href="#">
+                  <span class="ion-ios-arrow-forward"></span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--/ Agents Grid End /-->
+
+{% endblock %}

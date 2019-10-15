@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block app_content %}
+
+<section class="intro-single">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 col-lg-8">
+        <div class="title-single-box">
+          <h1 class="title-single">UserCenter</h1>
+          <span class="color-text-a">Add Role</span>
+        </div>
+      </div>
+      <div class="col-md-12 col-lg-4">
+        <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+              <a href="#">{{ title }}</a>
+            </li>
+            <li class="breadcrumb-item active" aria-current="page">
+              Profile
+            </li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <form role="form" class="form-inline" method="post">
+          {{ form.csrf_token() }}
+        <div class="row inline">
+          {{form.roletoadd(class_="form-control")}}
+          </div>
+          <div class="row inline">
+          <button type="submit" class="btn btn-success"> Add </button>
+        </div>
+    </form>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

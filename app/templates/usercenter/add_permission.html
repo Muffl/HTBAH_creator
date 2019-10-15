@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block app_content %}
+
+<section class="intro-single">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 col-lg-8">
+        <div class="title-single-box">
+          <h1 class="title-single">UserCenter</h1>
+          <span class="color-text-a">Add Permission</span>
+        </div>
+      </div>
+      <div class="col-md-12 col-lg-4">
+        <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+              <a href="#">{{ title }}</a>
+            </li>
+            <li class="breadcrumb-item active" aria-current="page">
+              Add
+            </li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-7">
+      <div class="card-box-c foo">
+        <div class="card-header-c d-flex">
+          <div class="card-box-ico">
+            <div class="card-title-c align-self-center row">
+              <span class="fa fa-edit"></span>
+            </div>
+            <h2 class="title-c">{{_('NEW Permission')}}</h2>
+          </div>
+        </div>
+        <div class="card-body-c">
+          <p class="content-c">
+            <form role="form" class="form-inline" method="post">
+                {{ form.csrf_token() }}
+              <div class="row inline">
+                {{form.permissionname.label}}{{form.permissionname(class_="form-control", placeholder="Name")}}
+              </div>
+              <div class="row inline">
+                {{form.permissionaction.label}}{{form.permissionaction(class_="form-control", placeholder="action")}}
+                <button type="submit" class="btn btn-success"> Add </button>
+              </div>
+          </form>
+          </p>
+        </div>
+        <div class="card-footer-c">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+{% endblock %}
