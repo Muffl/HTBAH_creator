@@ -1,0 +1,154 @@
+{% extends "base.html" %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block app_content %}
+
+
+<!--/ Carousel Star /-->
+<div class="intro intro-carousel">
+  <div id="carousel" class="owl-carousel owl-theme">
+    {% for item in titleshow %}
+    {% if item.image_name %}
+    <div class="carousel-item-a intro-item bg-image" style="background-image: url('{{ url_for('static', filename=item.image_name)}}')">
+    {% else %}
+    <div class="carousel-item-a intro-item bg-image">
+      {% endif %}
+      <div class="overlay overlay-a"></div>
+      <div class="intro-content display-table">
+        <div class="table-cell">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-8">
+                <div class="intro-body">
+                  <p class="intro-title-top">{{item.title}}</p>
+                  <h1 class="intro-title mb-4">{{item.text}}</h1>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+<!--/ Carousel end /-->
+
+
+  <!--/ Services Star /-->
+  <section class="section-services section-t8">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="title-wrap d-flex justify-content-between">
+            <div class="title-box">
+              <h2 class="title-a">About this page</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="card-box-c foo">
+            <div class="card-header-c d-flex">
+              <div class="card-box-ico">
+                <span class="fa fa-gamepad"></span>
+              </div>
+              <div class="card-title-c align-self-center">
+                <h2 class="title-c">Gaming</h2>
+              </div>
+            </div>
+            <div class="card-body-c">
+              <p class="content-c">
+                Sed porttitor lectus nibh. Cras ultricies ligula sed magna dictum porta. Praesent sapien massa,
+                convallis a pellentesque
+                nec, egestas non nisi.
+              </p>
+            </div>
+            <div class="card-footer-c">
+              <a href="#" class="link-c link-icon">Read more
+                <span class="ion-ios-arrow-forward"></span>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card-box-c foo">
+            <div class="card-header-c d-flex">
+              <div class="card-box-ico">
+                <span class="fa fa-book"></span>
+              </div>
+              <div class="card-title-c align-self-center">
+                <h2 class="title-c">Creating</h2>
+              </div>
+            </div>
+            <div class="card-body-c">
+              <p class="content-c">
+                Nulla porttitor accumsan tincidunt. Curabitur aliquet quam id dui posuere blandit. Mauris blandit
+                aliquet elit, eget tincidunt
+                nibh pulvinar a.
+              </p>
+            </div>
+            <div class="card-footer-c">
+              <a href="#" class="link-c link-icon">Read more
+                <span class="ion-ios-arrow-forward"></span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+  <!--/ Services End /-->
+
+
+        <!--/ News Star /-->
+        <section class="section-news section-t8">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="title-wrap d-flex justify-content-between">
+                  <div class="title-box">
+                    <h2 class="title-a">Latest Creation</h2>
+                  </div>
+                  <div class="title-link">
+                    <a href="blog-grid.html">All Creation
+                      <span class="ion-ios-arrow-forward"></span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="new-carousel" class="owl-carousel owl-theme">
+              {% for item in creations %}
+              <div class="carousel-item-c">
+                <div class="card-box-b card-shadow news-box">
+                  <div class="img-box-b">
+                    <img src="{{ url_for('static', filename='img/post-2.jpg')}}" alt="" class="img-b img-fluid">
+                  </div>
+                  <div class="card-overlay">
+                    <div class="card-header-b">
+                      <div class="card-category-b">
+                        <a href="#" class="category-b">{{item.title}}</a>
+                      </div>
+                      <div class="card-title-b">
+                        <h2 class="title-2">
+                          <a href="#">{{item.text}}</a>
+                        </h2>
+                      </div>
+                      <div class="card-date">
+                        <span class="date-b">{{item.created_date}}</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              {% endfor %}
+            </div>
+          </div>
+        </section>
+        <!--/ News End /-->
+
+
+{% endblock %}

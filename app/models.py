@@ -8,6 +8,41 @@ import jwt
 from sqlalchemy.dialects.mysql import INTEGER
 from app import db, login
 
+class Collection(db.Model):
+    __tablename__ = 'Collection'
+    id = db.Column(db.Integer, primary_key=True)
+    chars = db.relationship("Charactersheet",backref=db.backref("Collection", lazy="dynamic"))
+    char = db.Column("Charactersheet", db.Integer, db.ForeignKey("Charactersheet.id"))
+
+class Charactersheet(db.Model):
+    __tablename__ = 'Charactersheet'
+    id = db.Column(db.Integer, primary_key=True)
+    user = db.Column("User", db.Integer, db.ForeignKey("user.id"))
+    Name = db.Column(db.String(150), index=True)
+    sex = db.Column(db.String(5), index=True) # m , f , x
+    job = db.Column(db.String(150), index=True)
+    age = db.Column(db.Integer, default =25)
+    size = db.Column(db.Integer, index=True, default=180)
+    KK = db.Column(db.Integer, default =25) # körperkraft
+    AU = db.Column(db.Integer, default =25) # ausdauer
+    GE = db.Column(db.Integer, default =25) # geschick
+    IN = db.Column(db.Integer, default =25) # intelligenz
+    CH = db.Column(db.Integer, default =25) # Charme
+    MB = db.Column(db.Integer, default =25) # Mentale Belastbarkeit
+    ATN = db.Column(db.Integer, default =25) # Attacke Nahkampf
+    PA = db.Column(db.Integer, default =25) # Parade
+    ATD = db.Column(db.Integer, default =25) # Attacke Fernkampf / Distanz
+    INI = db.Column(db.Integer, default =25) # Initiative
+    LE = db.Column(db.Integer, default =25) # Lebensenergie
+    GG = db.Column(db.Integer, default =25) # Geistige Gesundheit
+    abilities = db.relationship("Abilities",backref=db.backref("Charactersheet", lazy="dynamic"), cascade = "all,delete" )
+
+class Abilities(db.Model):
+    __tablename__ = 'Abilities'
+    id = db.Column(db.Integer, primary_key=True)
+    Name = db.Column(db.String(150), index=True)
+    Probe = db.relationship("Charactersheet", backref=db.backref("abilities"), lazy='dynamic')
+    value = db.Column(db.Integer, default =0)
 
 class Download(db.Model):
     __tablename__ = 'download'
@@ -88,6 +123,7 @@ class User(UserMixin, db.Model):
     comments = db.relationship('Comment', backref='author', lazy=True)
     about_me = db.Column(db.String(140))
     last_seen = db.Column(db.DateTime, default=datetime.utcnow)
+    character = db.relationship("Charactersheet", backref=db.backref("User", lazy='dynamic'))
 
     role = db.relationship("Role",
                      secondary=usertorole,

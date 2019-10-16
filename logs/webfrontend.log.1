@@ -1,144 +1,63 @@
-2019-10-15 17:50:13,466 ERROR: Exception on / [GET] [in /usr/lib/python3/dist-packages/flask/app.py:1761]
+2019-10-16 23:57:37,193 ERROR: Exception on /creator/collection [GET] [in /home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/flask/app.py:1891]
 Traceback (most recent call last):
-  File "/usr/lib/python3/dist-packages/sqlalchemy/engine/base.py", line 1244, in _execute_context
-    cursor, statement, parameters, context
-  File "/usr/lib/python3/dist-packages/sqlalchemy/engine/default.py", line 552, in do_execute
-    cursor.execute(statement, parameters)
-sqlite3.OperationalError: no such table: event
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/sqlalchemy/orm/relationships.py", line 2361, in _determine_joins
+    consider_as_foreign_keys=consider_as_foreign_keys,
+  File "<string>", line 2, in join_condition
+  File "<string>", line 2, in _join_condition
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/sqlalchemy/util/deprecations.py", line 128, in warned
+    return fn(*args, **kwargs)
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/sqlalchemy/sql/selectable.py", line 947, in _join_condition
+    % (a.description, b.description, hint)
+sqlalchemy.exc.NoForeignKeysError: Can't find any foreign key relationships between 'Charactersheet' and 'Abilities'.
 
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "/usr/lib/python3/dist-packages/flask/app.py", line 2292, in wsgi_app
-    response = self.full_dispatch_request()
-  File "/usr/lib/python3/dist-packages/flask/app.py", line 1815, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "/usr/lib/python3/dist-packages/flask/app.py", line 1718, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "/usr/lib/python3/dist-packages/flask/_compat.py", line 35, in reraise
-    raise value
-  File "/usr/lib/python3/dist-packages/flask/app.py", line 1813, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "/usr/lib/python3/dist-packages/flask/app.py", line 1799, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "/home/orillion/CODING/HTBAH_Character_Creator/app/main/routes.py", line 41, in index
-    events = db.session.query(db_event).all()
-  File "/usr/lib/python3/dist-packages/sqlalchemy/orm/query.py", line 3161, in all
-    return list(self)
-  File "/usr/lib/python3/dist-packages/sqlalchemy/orm/query.py", line 3317, in __iter__
-    return self._execute_and_instances(context)
-  File "/usr/lib/python3/dist-packages/sqlalchemy/orm/query.py", line 3342, in _execute_and_instances
-    result = conn.execute(querycontext.statement, self._params)
-  File "/usr/lib/python3/dist-packages/sqlalchemy/engine/base.py", line 988, in execute
-    return meth(self, multiparams, params)
-  File "/usr/lib/python3/dist-packages/sqlalchemy/sql/elements.py", line 287, in _execute_on_connection
-    return connection._execute_clauseelement(self, multiparams, params)
-  File "/usr/lib/python3/dist-packages/sqlalchemy/engine/base.py", line 1107, in _execute_clauseelement
-    distilled_params,
-  File "/usr/lib/python3/dist-packages/sqlalchemy/engine/base.py", line 1248, in _execute_context
-    e, statement, parameters, cursor, context
-  File "/usr/lib/python3/dist-packages/sqlalchemy/engine/base.py", line 1466, in _handle_dbapi_exception
-    util.raise_from_cause(sqlalchemy_exception, exc_info)
-  File "/usr/lib/python3/dist-packages/sqlalchemy/util/compat.py", line 383, in raise_from_cause
-    reraise(type(exception), exception, tb=exc_tb, cause=cause)
-  File "/usr/lib/python3/dist-packages/sqlalchemy/util/compat.py", line 128, in reraise
-    raise value.with_traceback(tb)
-  File "/usr/lib/python3/dist-packages/sqlalchemy/engine/base.py", line 1244, in _execute_context
-    cursor, statement, parameters, context
-  File "/usr/lib/python3/dist-packages/sqlalchemy/engine/default.py", line 552, in do_execute
-    cursor.execute(statement, parameters)
-sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such table: event
-[SQL: SELECT event.id AS event_id, event.name AS event_name, event.type AS event_type, event.event_comment AS event_event_comment, event.event_image AS event_event_image, event.main_text AS event_main_text, event.sub_text AS event_sub_text, event.location AS event_location, event.dateofevent AS event_dateofevent, event.max_player AS event_max_player, event.max_games AS event_max_games, event.event_host AS event_event_host 
-FROM event]
-(Background on this error at: http://sqlalche.me/e/e3q8)
-2019-10-15 17:51:04,177 INFO: Microblog startup [in /home/orillion/CODING/HTBAH_Character_Creator/app/__init__.py:84]
-2019-10-15 17:51:05,905 ERROR: Exception on / [GET] [in /usr/lib/python3/dist-packages/flask/app.py:1761]
-Traceback (most recent call last):
-  File "/usr/lib/python3/dist-packages/sqlalchemy/engine/base.py", line 1244, in _execute_context
-    cursor, statement, parameters, context
-  File "/usr/lib/python3/dist-packages/sqlalchemy/engine/default.py", line 552, in do_execute
-    cursor.execute(statement, parameters)
-sqlite3.OperationalError: no such table: event
-
-The above exception was the direct cause of the following exception:
+During handling of the above exception, another exception occurred:
 
 Traceback (most recent call last):
-  File "/usr/lib/python3/dist-packages/flask/app.py", line 2292, in wsgi_app
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/flask/app.py", line 2446, in wsgi_app
     response = self.full_dispatch_request()
-  File "/usr/lib/python3/dist-packages/flask/app.py", line 1815, in full_dispatch_request
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/flask/app.py", line 1951, in full_dispatch_request
     rv = self.handle_user_exception(e)
-  File "/usr/lib/python3/dist-packages/flask/app.py", line 1718, in handle_user_exception
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/flask/app.py", line 1820, in handle_user_exception
     reraise(exc_type, exc_value, tb)
-  File "/usr/lib/python3/dist-packages/flask/_compat.py", line 35, in reraise
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
     raise value
-  File "/usr/lib/python3/dist-packages/flask/app.py", line 1813, in full_dispatch_request
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/flask/app.py", line 1949, in full_dispatch_request
     rv = self.dispatch_request()
-  File "/usr/lib/python3/dist-packages/flask/app.py", line 1799, in dispatch_request
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/flask/app.py", line 1935, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "/home/orillion/CODING/HTBAH_Character_Creator/app/main/routes.py", line 41, in index
-    events = db.session.query(db_event).all()
-  File "/usr/lib/python3/dist-packages/sqlalchemy/orm/query.py", line 3161, in all
-    return list(self)
-  File "/usr/lib/python3/dist-packages/sqlalchemy/orm/query.py", line 3317, in __iter__
-    return self._execute_and_instances(context)
-  File "/usr/lib/python3/dist-packages/sqlalchemy/orm/query.py", line 3342, in _execute_and_instances
-    result = conn.execute(querycontext.statement, self._params)
-  File "/usr/lib/python3/dist-packages/sqlalchemy/engine/base.py", line 988, in execute
-    return meth(self, multiparams, params)
-  File "/usr/lib/python3/dist-packages/sqlalchemy/sql/elements.py", line 287, in _execute_on_connection
-    return connection._execute_clauseelement(self, multiparams, params)
-  File "/usr/lib/python3/dist-packages/sqlalchemy/engine/base.py", line 1107, in _execute_clauseelement
-    distilled_params,
-  File "/usr/lib/python3/dist-packages/sqlalchemy/engine/base.py", line 1248, in _execute_context
-    e, statement, parameters, cursor, context
-  File "/usr/lib/python3/dist-packages/sqlalchemy/engine/base.py", line 1466, in _handle_dbapi_exception
-    util.raise_from_cause(sqlalchemy_exception, exc_info)
-  File "/usr/lib/python3/dist-packages/sqlalchemy/util/compat.py", line 383, in raise_from_cause
-    reraise(type(exception), exception, tb=exc_tb, cause=cause)
-  File "/usr/lib/python3/dist-packages/sqlalchemy/util/compat.py", line 128, in reraise
-    raise value.with_traceback(tb)
-  File "/usr/lib/python3/dist-packages/sqlalchemy/engine/base.py", line 1244, in _execute_context
-    cursor, statement, parameters, context
-  File "/usr/lib/python3/dist-packages/sqlalchemy/engine/default.py", line 552, in do_execute
-    cursor.execute(statement, parameters)
-sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such table: event
-[SQL: SELECT event.id AS event_id, event.name AS event_name, event.type AS event_type, event.event_comment AS event_event_comment, event.event_image AS event_event_image, event.main_text AS event_main_text, event.sub_text AS event_sub_text, event.location AS event_location, event.dateofevent AS event_dateofevent, event.max_player AS event_max_player, event.max_games AS event_max_games, event.event_host AS event_event_host 
-FROM event]
-(Background on this error at: http://sqlalche.me/e/e3q8)
-2019-10-15 17:54:25,241 INFO: Microblog startup [in /home/orillion/CODING/HTBAH_Character_Creator/app/__init__.py:84]
-2019-10-15 17:54:28,159 ERROR: Exception on / [GET] [in /usr/lib/python3/dist-packages/flask/app.py:1761]
-Traceback (most recent call last):
-  File "/usr/lib/python3/dist-packages/flask/app.py", line 2292, in wsgi_app
-    response = self.full_dispatch_request()
-  File "/usr/lib/python3/dist-packages/flask/app.py", line 1815, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "/usr/lib/python3/dist-packages/flask/app.py", line 1718, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "/usr/lib/python3/dist-packages/flask/_compat.py", line 35, in reraise
-    raise value
-  File "/usr/lib/python3/dist-packages/flask/app.py", line 1813, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "/usr/lib/python3/dist-packages/flask/app.py", line 1799, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "/home/orillion/CODING/HTBAH_Character_Creator/app/main/routes.py", line 40, in index
-    events = db.session.query(db_event).all()
-NameError: name 'db_event' is not defined
-2019-10-15 17:58:50,992 INFO: Microblog startup [in /home/orillion/CODING/HTBAH_Character_Creator/app/__init__.py:84]
-2019-10-15 17:58:52,217 ERROR: Exception on / [GET] [in /usr/lib/python3/dist-packages/flask/app.py:1761]
-Traceback (most recent call last):
-  File "/usr/lib/python3/dist-packages/flask/app.py", line 2292, in wsgi_app
-    response = self.full_dispatch_request()
-  File "/usr/lib/python3/dist-packages/flask/app.py", line 1815, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "/usr/lib/python3/dist-packages/flask/app.py", line 1718, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "/usr/lib/python3/dist-packages/flask/_compat.py", line 35, in reraise
-    raise value
-  File "/usr/lib/python3/dist-packages/flask/app.py", line 1813, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "/usr/lib/python3/dist-packages/flask/app.py", line 1799, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "/home/orillion/CODING/HTBAH_Character_Creator/app/main/routes.py", line 40, in index
-    events = db.session.query(db_event).all()
-NameError: name 'db_event' is not defined
-2019-10-15 17:59:19,818 INFO: Microblog startup [in /home/orillion/CODING/HTBAH_Character_Creator/app/__init__.py:84]
+  File "/home/orillion/CODING/HTBAH_Character_Creator/app/creator/routes.py", line 19, in creator_collection
+    collection = db.session.query(Collection).all()
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/sqlalchemy/orm/scoping.py", line 162, in do
+    return getattr(self.registry(), name)(*args, **kwargs)
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 1544, in query
+    return self._query_cls(entities, self, **kwargs)
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/sqlalchemy/orm/query.py", line 168, in __init__
+    self._set_entities(entities)
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/sqlalchemy/orm/query.py", line 200, in _set_entities
+    self._set_entity_selectables(self._entities)
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/sqlalchemy/orm/query.py", line 231, in _set_entity_selectables
+    ent.setup_entity(*d[entity])
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/sqlalchemy/orm/query.py", line 4121, in setup_entity
+    self._with_polymorphic = ext_info.with_polymorphic_mappers
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/sqlalchemy/util/langhelpers.py", line 855, in __get__
+    obj.__dict__[self.__name__] = result = self.fget(obj)
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/sqlalchemy/orm/mapper.py", line 2135, in _with_polymorphic_mappers
+    configure_mappers()
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/sqlalchemy/orm/mapper.py", line 3248, in configure_mappers
+    mapper._post_configure_properties()
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/sqlalchemy/orm/mapper.py", line 1947, in _post_configure_properties
+    prop.init()
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/sqlalchemy/orm/interfaces.py", line 196, in init
+    self.do_init()
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/sqlalchemy/orm/relationships.py", line 1861, in do_init
+    self._setup_join_conditions()
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/sqlalchemy/orm/relationships.py", line 1941, in _setup_join_conditions
+    can_be_synced_fn=self._columns_are_mapped,
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/sqlalchemy/orm/relationships.py", line 2246, in __init__
+    self._determine_joins()
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/sqlalchemy/orm/relationships.py", line 2383, in _determine_joins
+    "specify a 'primaryjoin' expression." % self.prop
+sqlalchemy.exc.NoForeignKeysError: Could not determine join condition between parent/child tables on relationship Charactersheet.abilities - there are no foreign keys linking these tables.  Ensure that referencing columns are associated with a ForeignKey or ForeignKeyConstraint, or specify a 'primaryjoin' expression.
+2019-10-16 23:57:43,084 INFO: Microblog startup [in /home/orillion/CODING/HTBAH_Character_Creator/app/__init__.py:84]
+2019-10-16 23:57:44,849 INFO: Microblog startup [in /home/orillion/CODING/HTBAH_Character_Creator/app/__init__.py:84]
+2019-10-16 23:57:46,827 INFO: Microblog startup [in /home/orillion/CODING/HTBAH_Character_Creator/app/__init__.py:84]
