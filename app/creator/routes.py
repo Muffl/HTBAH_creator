@@ -4,19 +4,19 @@ from flask_login import login_user, logout_user, current_user
 from flask_babel import _
 from app import db
 from app.creator import bp
-from app.creator.forms import *
-from app.models import User, Collection, Charactersheet, Abilities
+from app.creator.forms import Form_Creator
+from app.models import User, Charactersheet, Abilities
 
 
 @bp.route('/index', methods=['GET', 'POST'])
 def creator_index():
-    collection = db.session.query(collection).limit(5).all()
+    collection = db.session.query(Charactersheet).limit(5).all()
     return render_template('creator/index.html', title=_('Sign In'), data=collection)
 
 
 @bp.route('/collection', methods=['GET', 'POST'])
 def creator_collection():
-    collection = db.session.query(Collection).all()
+    collection = db.session.query(Charactersheet).all()
     return render_template('creator/collection.html', title=_('Sign In'), data=collection)
 
 @bp.route('/download', methods=['GET', 'POST'])
@@ -26,4 +26,5 @@ def creator_download():
 
 @bp.route('/create', methods=['GET', 'POST'])
 def creator_create():
-    return render_template('creator/creator.html', title=_('Sign In'))
+    form = Form_Creator()
+    return render_template('creator/creator.html', title=_('Sign In'), form=form)

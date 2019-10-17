@@ -37,18 +37,8 @@ def upload_image(target, user):
 @bp.route('/', methods=['GET', 'POST'])
 @bp.route('/index', methods=['GET', 'POST'])
 def index():
-    events = db.session.query(db_event).all()
-    blog = db.session.query(db_blog).filter(db_blog.category != 'title').all()
-    news = db.session.query(db_blog).filter(db_blog.category == 'news').order_by(db_blog.created_date.desc()).all()
-    titleshow = db.session.query(db_blog).filter(db_blog.category == 'title').all()
-    page = request.args.get('page', 1, type=int)
-    return render_template('index.html',
-                    title=_('Home'),
-                    blog=blog,
-                    news=news,
-                    titleshow = titleshow,
-                    events=events[:3]
-                    )
+
+    return render_template('index.html')
 
 
 

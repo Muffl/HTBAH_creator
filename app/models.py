@@ -8,16 +8,10 @@ import jwt
 from sqlalchemy.dialects.mysql import INTEGER
 from app import db, login
 
-class Collection(db.Model):
-    __tablename__ = 'Collection'
-    id = db.Column(db.Integer, primary_key=True)
-    chars = db.relationship("Charactersheet",backref=db.backref("Collection", lazy="dynamic"))
-    char = db.Column("Charactersheet", db.Integer, db.ForeignKey("Charactersheet.id"))
-
 class Charactersheet(db.Model):
     __tablename__ = 'Charactersheet'
     id = db.Column(db.Integer, primary_key=True)
-    user = db.Column("User", db.Integer, db.ForeignKey("user.id"))
+    creator = db.Column(db.Integer, db.ForeignKey('user.id'))
     Name = db.Column(db.String(150), index=True)
     sex = db.Column(db.String(5), index=True) # m , f , x
     job = db.Column(db.String(150), index=True)
@@ -35,13 +29,13 @@ class Charactersheet(db.Model):
     INI = db.Column(db.Integer, default =25) # Initiative
     LE = db.Column(db.Integer, default =25) # Lebensenergie
     GG = db.Column(db.Integer, default =25) # Geistige Gesundheit
-    abilities = db.relationship("Abilities",backref=db.backref("Charactersheet", lazy="dynamic"), cascade = "all,delete" )
+    abilities = db.relationship("Abilities",backref=db.backref("Charactersheet"), cascade = "all,delete" )
 
 class Abilities(db.Model):
     __tablename__ = 'Abilities'
     id = db.Column(db.Integer, primary_key=True)
+    char = db.Column("char", db.Integer, db.ForeignKey("Charactersheet.id"))
     Name = db.Column(db.String(150), index=True)
-    Probe = db.relationship("Charactersheet", backref=db.backref("abilities"), lazy='dynamic')
     value = db.Column(db.Integer, default =0)
 
 class Download(db.Model):
@@ -118,12 +112,10 @@ class User(UserMixin, db.Model):
     account_suspended = db.Column(db.Boolean, default = False)
     real_name = db.Column(db.String(200), default="Nobody")
     image_name = db.Column(db.String(200), default="defaultavatar.jpg")
-    posts = db.relationship('Post', backref='author', lazy='dynamic')
     downloads = db.relationship('Download', backref='author', lazy='dynamic',cascade="all,delete")
-    comments = db.relationship('Comment', backref='author', lazy=True)
     about_me = db.Column(db.String(140))
     last_seen = db.Column(db.DateTime, default=datetime.utcnow)
-    character = db.relationship("Charactersheet", backref=db.backref("User", lazy='dynamic'))
+    character = db.relationship("Charactersheet", backref=db.backref("Creator2"))
 
     role = db.relationship("Role",
                      secondary=usertorole,
