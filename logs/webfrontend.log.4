@@ -1,12 +1,4 @@
-2019-10-17 13:42:31,421 ERROR: Exception on /creator/index [GET] [in /Library/Python/3.7/site-packages/flask/app.py:1891]
-Traceback (most recent call last):
-  File "/Library/Python/3.7/site-packages/sqlalchemy/ext/declarative/clsregistry.py", line 294, in __call__
-    x = eval(self.arg, globals(), self._dict)
-  File "<string>", line 1, in <module>
-NameError: name 'Post' is not defined
-
-During handling of the above exception, another exception occurred:
-
+2019-10-17 14:22:55,788 ERROR: Exception on /creator/create [GET] [in /Library/Python/3.7/site-packages/flask/app.py:1891]
 Traceback (most recent call last):
   File "/Library/Python/3.7/site-packages/flask/app.py", line 2446, in wsgi_app
     response = self.full_dispatch_request()
@@ -20,103 +12,61 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "/Library/Python/3.7/site-packages/flask/app.py", line 1935, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "/Users/haikodidzoleit/CODING/HTBAH_creator/app/creator/routes.py", line 13, in creator_index
-    collection = db.session.query(Charactersheet).limit(5).all()
-  File "/Library/Python/3.7/site-packages/sqlalchemy/orm/scoping.py", line 162, in do
-    return getattr(self.registry(), name)(*args, **kwargs)
-  File "/Library/Python/3.7/site-packages/sqlalchemy/orm/session.py", line 1544, in query
-    return self._query_cls(entities, self, **kwargs)
-  File "/Library/Python/3.7/site-packages/sqlalchemy/orm/query.py", line 168, in __init__
-    self._set_entities(entities)
-  File "/Library/Python/3.7/site-packages/sqlalchemy/orm/query.py", line 200, in _set_entities
-    self._set_entity_selectables(self._entities)
-  File "/Library/Python/3.7/site-packages/sqlalchemy/orm/query.py", line 231, in _set_entity_selectables
-    ent.setup_entity(*d[entity])
-  File "/Library/Python/3.7/site-packages/sqlalchemy/orm/query.py", line 4121, in setup_entity
-    self._with_polymorphic = ext_info.with_polymorphic_mappers
-  File "/Library/Python/3.7/site-packages/sqlalchemy/util/langhelpers.py", line 855, in __get__
-    obj.__dict__[self.__name__] = result = self.fget(obj)
-  File "/Library/Python/3.7/site-packages/sqlalchemy/orm/mapper.py", line 2135, in _with_polymorphic_mappers
-    configure_mappers()
-  File "/Library/Python/3.7/site-packages/sqlalchemy/orm/mapper.py", line 3248, in configure_mappers
-    mapper._post_configure_properties()
-  File "/Library/Python/3.7/site-packages/sqlalchemy/orm/mapper.py", line 1947, in _post_configure_properties
-    prop.init()
-  File "/Library/Python/3.7/site-packages/sqlalchemy/orm/interfaces.py", line 196, in init
-    self.do_init()
-  File "/Library/Python/3.7/site-packages/sqlalchemy/orm/relationships.py", line 1860, in do_init
-    self._process_dependent_arguments()
-  File "/Library/Python/3.7/site-packages/sqlalchemy/orm/relationships.py", line 1922, in _process_dependent_arguments
-    self.target = self.entity.persist_selectable
-  File "/Library/Python/3.7/site-packages/sqlalchemy/util/langhelpers.py", line 855, in __get__
-    obj.__dict__[self.__name__] = result = self.fget(obj)
-  File "/Library/Python/3.7/site-packages/sqlalchemy/orm/relationships.py", line 1827, in entity
-    argument = self.argument()
-  File "/Library/Python/3.7/site-packages/sqlalchemy/ext/declarative/clsregistry.py", line 306, in __call__
-    % (self.prop.parent, self.arg, n.args[0], self.cls)
-sqlalchemy.exc.InvalidRequestError: When initializing mapper mapped class User->user, expression 'Post' failed to locate a name ("name 'Post' is not defined"). If this is a class name, consider adding this relationship() to the <class 'app.models.User'> class after both dependent classes have been defined.
-2019-10-17 13:42:58,570 INFO: Microblog startup [in /Users/haikodidzoleit/CODING/HTBAH_creator/app/__init__.py:84]
-2019-10-17 13:42:59,595 INFO: Microblog startup [in /Users/haikodidzoleit/CODING/HTBAH_creator/app/__init__.py:84]
-2019-10-17 13:43:00,655 INFO: Microblog startup [in /Users/haikodidzoleit/CODING/HTBAH_creator/app/__init__.py:84]
-2019-10-17 13:43:03,501 INFO: Microblog startup [in /Users/haikodidzoleit/CODING/HTBAH_creator/app/__init__.py:84]
-2019-10-17 13:43:06,483 ERROR: Exception on /creator/index [GET] [in /Library/Python/3.7/site-packages/flask/app.py:1891]
-Traceback (most recent call last):
-  File "/Library/Python/3.7/site-packages/sqlalchemy/ext/declarative/clsregistry.py", line 294, in __call__
-    x = eval(self.arg, globals(), self._dict)
-  File "<string>", line 1, in <module>
-NameError: name 'Comment' is not defined
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/Library/Python/3.7/site-packages/flask/app.py", line 2446, in wsgi_app
-    response = self.full_dispatch_request()
-  File "/Library/Python/3.7/site-packages/flask/app.py", line 1951, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "/Library/Python/3.7/site-packages/flask/app.py", line 1820, in handle_user_exception
+  File "/Users/haikodidzoleit/CODING/HTBAH_creator/app/creator/routes.py", line 30, in creator_create
+    return render_template('creator/creator.html', title=_('Sign In'), form=form)
+  File "/Library/Python/3.7/site-packages/flask/templating.py", line 140, in render_template
+    ctx.app,
+  File "/Library/Python/3.7/site-packages/flask/templating.py", line 120, in _render
+    rv = template.render(context)
+  File "/Library/Python/3.7/site-packages/jinja2/asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "/Library/Python/3.7/site-packages/jinja2/environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "/Library/Python/3.7/site-packages/jinja2/environment.py", line 780, in handle_exception
     reraise(exc_type, exc_value, tb)
-  File "/Library/Python/3.7/site-packages/flask/_compat.py", line 39, in reraise
-    raise value
-  File "/Library/Python/3.7/site-packages/flask/app.py", line 1949, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "/Library/Python/3.7/site-packages/flask/app.py", line 1935, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "/Users/haikodidzoleit/CODING/HTBAH_creator/app/creator/routes.py", line 13, in creator_index
-    collection = db.session.query(Charactersheet).limit(5).all()
-  File "/Library/Python/3.7/site-packages/sqlalchemy/orm/scoping.py", line 162, in do
-    return getattr(self.registry(), name)(*args, **kwargs)
-  File "/Library/Python/3.7/site-packages/sqlalchemy/orm/session.py", line 1544, in query
-    return self._query_cls(entities, self, **kwargs)
-  File "/Library/Python/3.7/site-packages/sqlalchemy/orm/query.py", line 168, in __init__
-    self._set_entities(entities)
-  File "/Library/Python/3.7/site-packages/sqlalchemy/orm/query.py", line 200, in _set_entities
-    self._set_entity_selectables(self._entities)
-  File "/Library/Python/3.7/site-packages/sqlalchemy/orm/query.py", line 231, in _set_entity_selectables
-    ent.setup_entity(*d[entity])
-  File "/Library/Python/3.7/site-packages/sqlalchemy/orm/query.py", line 4121, in setup_entity
-    self._with_polymorphic = ext_info.with_polymorphic_mappers
-  File "/Library/Python/3.7/site-packages/sqlalchemy/util/langhelpers.py", line 855, in __get__
-    obj.__dict__[self.__name__] = result = self.fget(obj)
-  File "/Library/Python/3.7/site-packages/sqlalchemy/orm/mapper.py", line 2135, in _with_polymorphic_mappers
-    configure_mappers()
-  File "/Library/Python/3.7/site-packages/sqlalchemy/orm/mapper.py", line 3248, in configure_mappers
-    mapper._post_configure_properties()
-  File "/Library/Python/3.7/site-packages/sqlalchemy/orm/mapper.py", line 1947, in _post_configure_properties
-    prop.init()
-  File "/Library/Python/3.7/site-packages/sqlalchemy/orm/interfaces.py", line 196, in init
-    self.do_init()
-  File "/Library/Python/3.7/site-packages/sqlalchemy/orm/relationships.py", line 1860, in do_init
-    self._process_dependent_arguments()
-  File "/Library/Python/3.7/site-packages/sqlalchemy/orm/relationships.py", line 1922, in _process_dependent_arguments
-    self.target = self.entity.persist_selectable
-  File "/Library/Python/3.7/site-packages/sqlalchemy/util/langhelpers.py", line 855, in __get__
-    obj.__dict__[self.__name__] = result = self.fget(obj)
-  File "/Library/Python/3.7/site-packages/sqlalchemy/orm/relationships.py", line 1827, in entity
-    argument = self.argument()
-  File "/Library/Python/3.7/site-packages/sqlalchemy/ext/declarative/clsregistry.py", line 306, in __call__
-    % (self.prop.parent, self.arg, n.args[0], self.cls)
-sqlalchemy.exc.InvalidRequestError: When initializing mapper mapped class User->user, expression 'Comment' failed to locate a name ("name 'Comment' is not defined"). If this is a class name, consider adding this relationship() to the <class 'app.models.User'> class after both dependent classes have been defined.
-2019-10-17 13:43:24,075 INFO: Microblog startup [in /Users/haikodidzoleit/CODING/HTBAH_creator/app/__init__.py:84]
-2019-10-17 13:43:25,066 INFO: Microblog startup [in /Users/haikodidzoleit/CODING/HTBAH_creator/app/__init__.py:84]
-2019-10-17 13:43:26,115 INFO: Microblog startup [in /Users/haikodidzoleit/CODING/HTBAH_creator/app/__init__.py:84]
-2019-10-17 13:43:28,065 INFO: Microblog startup [in /Users/haikodidzoleit/CODING/HTBAH_creator/app/__init__.py:84]
+  File "/Library/Python/3.7/site-packages/jinja2/_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "/Users/haikodidzoleit/CODING/HTBAH_creator/app/templates/creator/creator.html", line 2, in top-level template code
+    {% import 'bootstrap/wtf.html' as wtf %}
+  File "/Library/Python/3.7/site-packages/jinja2/environment.py", line 1005, in render
+    return concat(self.root_render_func(self.new_context(vars)))
+  File "/Users/haikodidzoleit/CODING/HTBAH_creator/app/templates/creator/creator.html", line 17, in root
+    </div>
+  File "/Users/haikodidzoleit/CODING/HTBAH_creator/app/templates/base.html", line 14, in root
+    <link rel="stylesheet" href="{{ url_for('static', filename='library/bootstrap/css/bootstrap.min.css')}}">
+  File "/Library/Python/3.7/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 10, in root
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  File "/Library/Python/3.7/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 20, in block_doc
+    {% block body -%}
+  File "/Library/Python/3.7/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 39, in block_html
+  File "/Library/Python/3.7/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 92, in block_body
+  File "/Users/haikodidzoleit/CODING/HTBAH_creator/app/templates/base.html", line 121, in block_content
+  File "/Users/haikodidzoleit/CODING/HTBAH_creator/app/templates/creator/creator.html", line 30, in block_app_content
+    <div class="card-box-c foo">
+  File "/Library/Python/3.7/site-packages/jinja2/runtime.py", line 262, in call
+    return __obj(*args, **kwargs)
+  File "/Library/Python/3.7/site-packages/wtforms/fields/core.py", line 155, in __call__
+    return self.meta.render_field(self, kwargs)
+  File "/Library/Python/3.7/site-packages/wtforms/meta.py", line 56, in render_field
+    return field.widget(field, **render_kw)
+  File "/Library/Python/3.7/site-packages/wtforms/widgets/core.py", line 120, in __call__
+    for subfield in field:
+  File "/Library/Python/3.7/site-packages/wtforms/fields/core.py", line 432, in __iter__
+    for i, (value, label, checked) in enumerate(self.iter_choices()):
+  File "/Library/Python/3.7/site-packages/wtforms/fields/core.py", line 454, in iter_choices
+    for value, label in self.choices:
+ValueError: not enough values to unpack (expected 2, got 1)
+2019-10-17 14:24:26,469 INFO: Microblog startup [in /Users/haikodidzoleit/CODING/HTBAH_creator/app/__init__.py:84]
+2019-10-17 14:27:40,422 INFO: Microblog startup [in /Users/haikodidzoleit/CODING/HTBAH_creator/app/__init__.py:84]
+2019-10-17 14:28:05,734 INFO: Microblog startup [in /Users/haikodidzoleit/CODING/HTBAH_creator/app/__init__.py:84]
+2019-10-17 14:28:27,383 INFO: Microblog startup [in /Users/haikodidzoleit/CODING/HTBAH_creator/app/__init__.py:84]
+2019-10-17 14:28:36,893 INFO: Microblog startup [in /Users/haikodidzoleit/CODING/HTBAH_creator/app/__init__.py:84]
+2019-10-17 14:28:50,965 INFO: Microblog startup [in /Users/haikodidzoleit/CODING/HTBAH_creator/app/__init__.py:84]
+2019-10-17 14:29:07,636 INFO: Microblog startup [in /Users/haikodidzoleit/CODING/HTBAH_creator/app/__init__.py:84]
+2019-10-17 14:29:31,140 INFO: Microblog startup [in /Users/haikodidzoleit/CODING/HTBAH_creator/app/__init__.py:84]
+2019-10-18 15:43:06,143 INFO: Microblog startup [in /home/orillion/CODING/HTBAH_Character_Creator/app/__init__.py:84]
+2019-10-18 15:46:22,948 INFO: Microblog startup [in /home/orillion/CODING/HTBAH_Character_Creator/app/__init__.py:84]
+2019-10-18 15:53:42,358 INFO: Microblog startup [in /home/orillion/CODING/HTBAH_Character_Creator/app/__init__.py:84]
+2019-10-18 15:55:50,860 INFO: Microblog startup [in /home/orillion/CODING/HTBAH_Character_Creator/app/__init__.py:84]
+2019-10-18 15:57:07,444 INFO: Microblog startup [in /home/orillion/CODING/HTBAH_Character_Creator/app/__init__.py:84]
+2019-10-18 15:59:09,768 INFO: Microblog startup [in /home/orillion/CODING/HTBAH_Character_Creator/app/__init__.py:84]

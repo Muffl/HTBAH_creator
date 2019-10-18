@@ -1,129 +1,98 @@
-2019-10-17 13:43:30,377 ERROR: Exception on /creator/index [GET] [in /Library/Python/3.7/site-packages/flask/app.py:1891]
+2019-10-18 15:59:11,163 ERROR: Exception on /creator/create [GET] [in /home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/flask/app.py:1891]
 Traceback (most recent call last):
-  File "/Library/Python/3.7/site-packages/sqlalchemy/orm/relationships.py", line 2361, in _determine_joins
-    consider_as_foreign_keys=consider_as_foreign_keys,
-  File "<string>", line 2, in join_condition
-  File "<string>", line 2, in _join_condition
-  File "/Library/Python/3.7/site-packages/sqlalchemy/util/deprecations.py", line 128, in warned
-    return fn(*args, **kwargs)
-  File "/Library/Python/3.7/site-packages/sqlalchemy/sql/selectable.py", line 947, in _join_condition
-    % (a.description, b.description, hint)
-sqlalchemy.exc.NoForeignKeysError: Can't find any foreign key relationships between 'user' and 'Charactersheet'.
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/Library/Python/3.7/site-packages/flask/app.py", line 2446, in wsgi_app
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/flask/app.py", line 2446, in wsgi_app
     response = self.full_dispatch_request()
-  File "/Library/Python/3.7/site-packages/flask/app.py", line 1951, in full_dispatch_request
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/flask/app.py", line 1951, in full_dispatch_request
     rv = self.handle_user_exception(e)
-  File "/Library/Python/3.7/site-packages/flask/app.py", line 1820, in handle_user_exception
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/flask/app.py", line 1820, in handle_user_exception
     reraise(exc_type, exc_value, tb)
-  File "/Library/Python/3.7/site-packages/flask/_compat.py", line 39, in reraise
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
     raise value
-  File "/Library/Python/3.7/site-packages/flask/app.py", line 1949, in full_dispatch_request
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/flask/app.py", line 1949, in full_dispatch_request
     rv = self.dispatch_request()
-  File "/Library/Python/3.7/site-packages/flask/app.py", line 1935, in dispatch_request
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/flask/app.py", line 1935, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "/Users/haikodidzoleit/CODING/HTBAH_creator/app/creator/routes.py", line 13, in creator_index
-    collection = db.session.query(Charactersheet).limit(5).all()
-  File "/Library/Python/3.7/site-packages/sqlalchemy/orm/scoping.py", line 162, in do
-    return getattr(self.registry(), name)(*args, **kwargs)
-  File "/Library/Python/3.7/site-packages/sqlalchemy/orm/session.py", line 1544, in query
-    return self._query_cls(entities, self, **kwargs)
-  File "/Library/Python/3.7/site-packages/sqlalchemy/orm/query.py", line 168, in __init__
-    self._set_entities(entities)
-  File "/Library/Python/3.7/site-packages/sqlalchemy/orm/query.py", line 200, in _set_entities
-    self._set_entity_selectables(self._entities)
-  File "/Library/Python/3.7/site-packages/sqlalchemy/orm/query.py", line 231, in _set_entity_selectables
-    ent.setup_entity(*d[entity])
-  File "/Library/Python/3.7/site-packages/sqlalchemy/orm/query.py", line 4121, in setup_entity
-    self._with_polymorphic = ext_info.with_polymorphic_mappers
-  File "/Library/Python/3.7/site-packages/sqlalchemy/util/langhelpers.py", line 855, in __get__
-    obj.__dict__[self.__name__] = result = self.fget(obj)
-  File "/Library/Python/3.7/site-packages/sqlalchemy/orm/mapper.py", line 2135, in _with_polymorphic_mappers
-    configure_mappers()
-  File "/Library/Python/3.7/site-packages/sqlalchemy/orm/mapper.py", line 3248, in configure_mappers
-    mapper._post_configure_properties()
-  File "/Library/Python/3.7/site-packages/sqlalchemy/orm/mapper.py", line 1947, in _post_configure_properties
-    prop.init()
-  File "/Library/Python/3.7/site-packages/sqlalchemy/orm/interfaces.py", line 196, in init
-    self.do_init()
-  File "/Library/Python/3.7/site-packages/sqlalchemy/orm/relationships.py", line 1861, in do_init
-    self._setup_join_conditions()
-  File "/Library/Python/3.7/site-packages/sqlalchemy/orm/relationships.py", line 1941, in _setup_join_conditions
-    can_be_synced_fn=self._columns_are_mapped,
-  File "/Library/Python/3.7/site-packages/sqlalchemy/orm/relationships.py", line 2246, in __init__
-    self._determine_joins()
-  File "/Library/Python/3.7/site-packages/sqlalchemy/orm/relationships.py", line 2383, in _determine_joins
-    "specify a 'primaryjoin' expression." % self.prop
-sqlalchemy.exc.NoForeignKeysError: Could not determine join condition between parent/child tables on relationship User.character - there are no foreign keys linking these tables.  Ensure that referencing columns are associated with a ForeignKey or ForeignKeyConstraint, or specify a 'primaryjoin' expression.
-2019-10-17 13:44:19,135 INFO: Microblog startup [in /Users/haikodidzoleit/CODING/HTBAH_creator/app/__init__.py:84]
-2019-10-17 13:44:20,141 INFO: Microblog startup [in /Users/haikodidzoleit/CODING/HTBAH_creator/app/__init__.py:84]
-2019-10-17 13:44:21,244 INFO: Microblog startup [in /Users/haikodidzoleit/CODING/HTBAH_creator/app/__init__.py:84]
-2019-10-17 13:44:22,356 INFO: Microblog startup [in /Users/haikodidzoleit/CODING/HTBAH_creator/app/__init__.py:84]
-2019-10-17 13:44:25,136 ERROR: Exception on /creator/index [GET] [in /Library/Python/3.7/site-packages/flask/app.py:1891]
-Traceback (most recent call last):
-  File "/Library/Python/3.7/site-packages/flask/app.py", line 2446, in wsgi_app
-    response = self.full_dispatch_request()
-  File "/Library/Python/3.7/site-packages/flask/app.py", line 1951, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "/Library/Python/3.7/site-packages/flask/app.py", line 1820, in handle_user_exception
+  File "/home/orillion/CODING/HTBAH_Character_Creator/app/creator/routes.py", line 30, in creator_create
+    return render_template('creator/creator.html', title=_('Sign In'), form=form)
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/flask/templating.py", line 138, in render_template
+    ctx.app.jinja_env.get_or_select_template(template_name_or_list),
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/jinja2/environment.py", line 869, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/jinja2/environment.py", line 830, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/jinja2/environment.py", line 804, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/jinja2/loaders.py", line 125, in load
+    code = environment.compile(source, name, filename)
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/jinja2/environment.py", line 591, in compile
+    self.handle_exception(exc_info, source_hint=source_hint)
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/jinja2/environment.py", line 780, in handle_exception
     reraise(exc_type, exc_value, tb)
-  File "/Library/Python/3.7/site-packages/flask/_compat.py", line 39, in reraise
-    raise value
-  File "/Library/Python/3.7/site-packages/flask/app.py", line 1949, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "/Library/Python/3.7/site-packages/flask/app.py", line 1935, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "/Users/haikodidzoleit/CODING/HTBAH_creator/app/creator/routes.py", line 13, in creator_index
-    collection = db.session.query(Charactersheet).limit(5).all()
-  File "/Library/Python/3.7/site-packages/sqlalchemy/orm/scoping.py", line 162, in do
-    return getattr(self.registry(), name)(*args, **kwargs)
-  File "/Library/Python/3.7/site-packages/sqlalchemy/orm/session.py", line 1544, in query
-    return self._query_cls(entities, self, **kwargs)
-  File "/Library/Python/3.7/site-packages/sqlalchemy/orm/query.py", line 168, in __init__
-    self._set_entities(entities)
-  File "/Library/Python/3.7/site-packages/sqlalchemy/orm/query.py", line 200, in _set_entities
-    self._set_entity_selectables(self._entities)
-  File "/Library/Python/3.7/site-packages/sqlalchemy/orm/query.py", line 231, in _set_entity_selectables
-    ent.setup_entity(*d[entity])
-  File "/Library/Python/3.7/site-packages/sqlalchemy/orm/query.py", line 4121, in setup_entity
-    self._with_polymorphic = ext_info.with_polymorphic_mappers
-  File "/Library/Python/3.7/site-packages/sqlalchemy/util/langhelpers.py", line 855, in __get__
-    obj.__dict__[self.__name__] = result = self.fget(obj)
-  File "/Library/Python/3.7/site-packages/sqlalchemy/orm/mapper.py", line 2135, in _with_polymorphic_mappers
-    configure_mappers()
-  File "/Library/Python/3.7/site-packages/sqlalchemy/orm/mapper.py", line 3248, in configure_mappers
-    mapper._post_configure_properties()
-  File "/Library/Python/3.7/site-packages/sqlalchemy/orm/mapper.py", line 1947, in _post_configure_properties
-    prop.init()
-  File "/Library/Python/3.7/site-packages/sqlalchemy/orm/interfaces.py", line 196, in init
-    self.do_init()
-  File "/Library/Python/3.7/site-packages/sqlalchemy/orm/relationships.py", line 1864, in do_init
-    self._generate_backref()
-  File "/Library/Python/3.7/site-packages/sqlalchemy/orm/relationships.py", line 2121, in _generate_backref
-    mapper._configure_property(backref_key, relationship)
-  File "/Library/Python/3.7/site-packages/sqlalchemy/orm/mapper.py", line 1841, in _configure_property
-    prop.post_instrument_class(self)
-  File "/Library/Python/3.7/site-packages/sqlalchemy/orm/interfaces.py", line 577, in post_instrument_class
-    self.strategy.init_class_attribute(mapper)
-  File "/Library/Python/3.7/site-packages/sqlalchemy/orm/dynamic.py", line 38, in init_class_attribute
-    "uselist=False." % self.parent_property
-sqlalchemy.exc.InvalidRequestError: On relationship Charactersheet.Creator, 'dynamic' loaders cannot be used with many-to-one/one-to-one relationships and/or uselist=False.
-2019-10-17 13:45:26,936 INFO: Microblog startup [in /Users/haikodidzoleit/CODING/HTBAH_creator/app/__init__.py:84]
-2019-10-17 13:45:27,943 INFO: Microblog startup [in /Users/haikodidzoleit/CODING/HTBAH_creator/app/__init__.py:84]
-2019-10-17 13:45:29,024 INFO: Microblog startup [in /Users/haikodidzoleit/CODING/HTBAH_creator/app/__init__.py:84]
-2019-10-17 13:45:30,101 INFO: Microblog startup [in /Users/haikodidzoleit/CODING/HTBAH_creator/app/__init__.py:84]
-2019-10-17 13:45:55,365 INFO: Microblog startup [in /Users/haikodidzoleit/CODING/HTBAH_creator/app/__init__.py:84]
-2019-10-17 13:45:56,452 INFO: Microblog startup [in /Users/haikodidzoleit/CODING/HTBAH_creator/app/__init__.py:84]
-2019-10-17 13:45:57,469 INFO: Microblog startup [in /Users/haikodidzoleit/CODING/HTBAH_creator/app/__init__.py:84]
-2019-10-17 13:45:58,501 INFO: Microblog startup [in /Users/haikodidzoleit/CODING/HTBAH_creator/app/__init__.py:84]
-2019-10-17 13:46:05,200 INFO: Microblog startup [in /Users/haikodidzoleit/CODING/HTBAH_creator/app/__init__.py:84]
-2019-10-17 13:46:06,205 INFO: Microblog startup [in /Users/haikodidzoleit/CODING/HTBAH_creator/app/__init__.py:84]
-2019-10-17 13:46:07,298 INFO: Microblog startup [in /Users/haikodidzoleit/CODING/HTBAH_creator/app/__init__.py:84]
-2019-10-17 13:46:08,392 INFO: Microblog startup [in /Users/haikodidzoleit/CODING/HTBAH_creator/app/__init__.py:84]
-2019-10-17 13:48:11,073 INFO: Microblog startup [in /Users/haikodidzoleit/CODING/HTBAH_creator/app/__init__.py:84]
-2019-10-17 13:49:00,013 INFO: Microblog startup [in /Users/haikodidzoleit/CODING/HTBAH_creator/app/__init__.py:84]
-2019-10-17 13:52:09,554 INFO: Microblog startup [in /Users/haikodidzoleit/CODING/HTBAH_creator/app/__init__.py:84]
-2019-10-17 13:56:17,362 INFO: Microblog startup [in /Users/haikodidzoleit/CODING/HTBAH_creator/app/__init__.py:84]
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/jinja2/_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "/home/orillion/CODING/HTBAH_Character_Creator/app/templates/creator/creator.html", line 69, in template
+    <td>Attacke Nahkampf ({{form.ATN.label}}){{size=2,form.ATN(class_="form-control")}}</td>
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/jinja2/environment.py", line 497, in _parse
+    return Parser(self, source, name, encode_filename(filename)).parse()
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/jinja2/parser.py", line 901, in parse
+    result = nodes.Template(self.subparse(), lineno=1)
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/jinja2/parser.py", line 883, in subparse
+    rv = self.parse_statement()
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/jinja2/parser.py", line 130, in parse_statement
+    return getattr(self, 'parse_' + self.stream.current.value)()
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/jinja2/parser.py", line 268, in parse_block
+    node.body = self.parse_statements(('name:endblock',), drop_needle=True)
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/jinja2/parser.py", line 165, in parse_statements
+    result = self.subparse(end_tokens)
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/jinja2/parser.py", line 876, in subparse
+    self.stream.expect('variable_end')
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/jinja2/lexer.py", line 384, in expect
+    self.name, self.filename)
+jinja2.exceptions.TemplateSyntaxError: expected token 'end of print statement', got '='
+2019-10-18 15:59:34,100 INFO: Microblog startup [in /home/orillion/CODING/HTBAH_Character_Creator/app/__init__.py:84]
+2019-10-18 16:00:30,709 INFO: Microblog startup [in /home/orillion/CODING/HTBAH_Character_Creator/app/__init__.py:84]
+2019-10-18 16:01:03,996 INFO: Microblog startup [in /home/orillion/CODING/HTBAH_Character_Creator/app/__init__.py:84]
+2019-10-18 16:01:07,747 INFO: Microblog startup [in /home/orillion/CODING/HTBAH_Character_Creator/app/__init__.py:84]
+2019-10-18 16:01:26,515 INFO: Microblog startup [in /home/orillion/CODING/HTBAH_Character_Creator/app/__init__.py:84]
+2019-10-18 16:03:03,258 INFO: Microblog startup [in /home/orillion/CODING/HTBAH_Character_Creator/app/__init__.py:84]
+2019-10-18 16:14:14,637 INFO: Microblog startup [in /home/orillion/CODING/HTBAH_Character_Creator/app/__init__.py:84]
+2019-10-18 16:14:28,506 INFO: Microblog startup [in /home/orillion/CODING/HTBAH_Character_Creator/app/__init__.py:84]
+2019-10-18 16:14:57,291 INFO: Microblog startup [in /home/orillion/CODING/HTBAH_Character_Creator/app/__init__.py:84]
+2019-10-18 16:15:12,419 INFO: Microblog startup [in /home/orillion/CODING/HTBAH_Character_Creator/app/__init__.py:84]
+2019-10-18 16:16:00,096 INFO: Microblog startup [in /home/orillion/CODING/HTBAH_Character_Creator/app/__init__.py:84]
+2019-10-18 16:16:23,495 INFO: Microblog startup [in /home/orillion/CODING/HTBAH_Character_Creator/app/__init__.py:84]
+2019-10-18 16:17:16,572 INFO: Microblog startup [in /home/orillion/CODING/HTBAH_Character_Creator/app/__init__.py:84]
+2019-10-18 16:17:38,428 INFO: Microblog startup [in /home/orillion/CODING/HTBAH_Character_Creator/app/__init__.py:84]
+2019-10-18 16:17:51,536 INFO: Microblog startup [in /home/orillion/CODING/HTBAH_Character_Creator/app/__init__.py:84]
+2019-10-18 16:18:03,773 INFO: Microblog startup [in /home/orillion/CODING/HTBAH_Character_Creator/app/__init__.py:84]
+2019-10-18 16:18:17,329 INFO: Microblog startup [in /home/orillion/CODING/HTBAH_Character_Creator/app/__init__.py:84]
+2019-10-18 16:20:30,868 INFO: Microblog startup [in /home/orillion/CODING/HTBAH_Character_Creator/app/__init__.py:84]
+2019-10-18 16:41:59,444 INFO: Microblog startup [in /home/orillion/CODING/HTBAH_Character_Creator/app/__init__.py:84]
+2019-10-18 16:42:28,529 INFO: Microblog startup [in /home/orillion/CODING/HTBAH_Character_Creator/app/__init__.py:84]
+2019-10-18 16:44:19,711 INFO: Microblog startup [in /home/orillion/CODING/HTBAH_Character_Creator/app/__init__.py:84]
+2019-10-18 16:51:33,544 INFO: Microblog startup [in /home/orillion/CODING/HTBAH_Character_Creator/app/__init__.py:84]
+2019-10-18 16:51:47,504 INFO: Microblog startup [in /home/orillion/CODING/HTBAH_Character_Creator/app/__init__.py:84]
+2019-10-18 16:51:58,187 INFO: Microblog startup [in /home/orillion/CODING/HTBAH_Character_Creator/app/__init__.py:84]
+2019-10-18 16:52:07,475 INFO: Microblog startup [in /home/orillion/CODING/HTBAH_Character_Creator/app/__init__.py:84]
+2019-10-18 16:52:24,381 INFO: Microblog startup [in /home/orillion/CODING/HTBAH_Character_Creator/app/__init__.py:84]
+2019-10-18 16:52:35,887 INFO: Microblog startup [in /home/orillion/CODING/HTBAH_Character_Creator/app/__init__.py:84]
+2019-10-18 16:54:59,795 INFO: Microblog startup [in /home/orillion/CODING/HTBAH_Character_Creator/app/__init__.py:84]
+2019-10-18 16:55:12,123 INFO: Microblog startup [in /home/orillion/CODING/HTBAH_Character_Creator/app/__init__.py:84]
+2019-10-18 16:55:26,329 INFO: Microblog startup [in /home/orillion/CODING/HTBAH_Character_Creator/app/__init__.py:84]
+2019-10-18 16:55:34,177 INFO: Microblog startup [in /home/orillion/CODING/HTBAH_Character_Creator/app/__init__.py:84]
+2019-10-18 16:55:45,793 INFO: Microblog startup [in /home/orillion/CODING/HTBAH_Character_Creator/app/__init__.py:84]
+2019-10-18 16:55:56,089 INFO: Microblog startup [in /home/orillion/CODING/HTBAH_Character_Creator/app/__init__.py:84]
+2019-10-18 16:59:51,072 INFO: Microblog startup [in /home/orillion/CODING/HTBAH_Character_Creator/app/__init__.py:84]
+2019-10-18 17:01:19,144 INFO: Microblog startup [in /home/orillion/CODING/HTBAH_Character_Creator/app/__init__.py:84]
+2019-10-18 17:03:43,759 INFO: Microblog startup [in /home/orillion/CODING/HTBAH_Character_Creator/app/__init__.py:84]
+2019-10-18 17:03:59,606 INFO: Microblog startup [in /home/orillion/CODING/HTBAH_Character_Creator/app/__init__.py:84]
+2019-10-18 17:04:31,904 INFO: Microblog startup [in /home/orillion/CODING/HTBAH_Character_Creator/app/__init__.py:84]
+2019-10-18 17:04:39,855 INFO: Microblog startup [in /home/orillion/CODING/HTBAH_Character_Creator/app/__init__.py:84]
+2019-10-18 17:04:47,101 INFO: Microblog startup [in /home/orillion/CODING/HTBAH_Character_Creator/app/__init__.py:84]
+2019-10-18 17:06:27,438 INFO: Microblog startup [in /home/orillion/CODING/HTBAH_Character_Creator/app/__init__.py:84]
+2019-10-18 17:06:38,209 INFO: Microblog startup [in /home/orillion/CODING/HTBAH_Character_Creator/app/__init__.py:84]
+2019-10-18 17:07:14,606 INFO: Microblog startup [in /home/orillion/CODING/HTBAH_Character_Creator/app/__init__.py:84]
+2019-10-18 17:07:39,787 INFO: Microblog startup [in /home/orillion/CODING/HTBAH_Character_Creator/app/__init__.py:84]
+2019-10-18 17:11:50,355 INFO: Microblog startup [in /home/orillion/CODING/HTBAH_Character_Creator/app/__init__.py:84]
+2019-10-18 17:13:16,351 INFO: Microblog startup [in /home/orillion/CODING/HTBAH_Character_Creator/app/__init__.py:84]
+2019-10-18 17:14:03,241 INFO: Microblog startup [in /home/orillion/CODING/HTBAH_Character_Creator/app/__init__.py:84]

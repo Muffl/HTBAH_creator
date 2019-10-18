@@ -1,102 +1,17 @@
-2019-10-16 23:57:49,772 ERROR: Exception on /creator/collection [GET] [in /home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/flask/app.py:1891]
+2019-10-17 13:37:20,999 ERROR: Exception on /creator/index [GET] [in /Library/Python/3.7/site-packages/flask/app.py:1891]
 Traceback (most recent call last):
-  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/sqlalchemy/orm/relationships.py", line 2361, in _determine_joins
+  File "/Library/Python/3.7/site-packages/sqlalchemy/orm/relationships.py", line 2361, in _determine_joins
     consider_as_foreign_keys=consider_as_foreign_keys,
   File "<string>", line 2, in join_condition
   File "<string>", line 2, in _join_condition
-  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/sqlalchemy/util/deprecations.py", line 128, in warned
+  File "/Library/Python/3.7/site-packages/sqlalchemy/util/deprecations.py", line 128, in warned
     return fn(*args, **kwargs)
-  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/sqlalchemy/sql/selectable.py", line 947, in _join_condition
+  File "/Library/Python/3.7/site-packages/sqlalchemy/sql/selectable.py", line 947, in _join_condition
     % (a.description, b.description, hint)
 sqlalchemy.exc.NoForeignKeysError: Can't find any foreign key relationships between 'Charactersheet' and 'Abilities'.
 
 During handling of the above exception, another exception occurred:
 
-Traceback (most recent call last):
-  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/flask/app.py", line 2446, in wsgi_app
-    response = self.full_dispatch_request()
-  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/flask/app.py", line 1951, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/flask/app.py", line 1820, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
-    raise value
-  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/flask/app.py", line 1949, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/flask/app.py", line 1935, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "/home/orillion/CODING/HTBAH_Character_Creator/app/creator/routes.py", line 19, in creator_collection
-    collection = db.session.query(Collection).all()
-  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/sqlalchemy/orm/scoping.py", line 162, in do
-    return getattr(self.registry(), name)(*args, **kwargs)
-  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 1544, in query
-    return self._query_cls(entities, self, **kwargs)
-  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/sqlalchemy/orm/query.py", line 168, in __init__
-    self._set_entities(entities)
-  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/sqlalchemy/orm/query.py", line 200, in _set_entities
-    self._set_entity_selectables(self._entities)
-  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/sqlalchemy/orm/query.py", line 231, in _set_entity_selectables
-    ent.setup_entity(*d[entity])
-  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/sqlalchemy/orm/query.py", line 4121, in setup_entity
-    self._with_polymorphic = ext_info.with_polymorphic_mappers
-  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/sqlalchemy/util/langhelpers.py", line 855, in __get__
-    obj.__dict__[self.__name__] = result = self.fget(obj)
-  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/sqlalchemy/orm/mapper.py", line 2135, in _with_polymorphic_mappers
-    configure_mappers()
-  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/sqlalchemy/orm/mapper.py", line 3248, in configure_mappers
-    mapper._post_configure_properties()
-  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/sqlalchemy/orm/mapper.py", line 1947, in _post_configure_properties
-    prop.init()
-  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/sqlalchemy/orm/interfaces.py", line 196, in init
-    self.do_init()
-  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/sqlalchemy/orm/relationships.py", line 1861, in do_init
-    self._setup_join_conditions()
-  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/sqlalchemy/orm/relationships.py", line 1941, in _setup_join_conditions
-    can_be_synced_fn=self._columns_are_mapped,
-  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/sqlalchemy/orm/relationships.py", line 2246, in __init__
-    self._determine_joins()
-  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/sqlalchemy/orm/relationships.py", line 2383, in _determine_joins
-    "specify a 'primaryjoin' expression." % self.prop
-sqlalchemy.exc.NoForeignKeysError: Could not determine join condition between parent/child tables on relationship Charactersheet.abilities - there are no foreign keys linking these tables.  Ensure that referencing columns are associated with a ForeignKey or ForeignKeyConstraint, or specify a 'primaryjoin' expression.
-2019-10-16 23:58:00,102 INFO: Microblog startup [in /home/orillion/CODING/HTBAH_Character_Creator/app/__init__.py:84]
-2019-10-16 23:58:01,017 ERROR: Exception on /creator/collection [GET] [in /home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/flask/app.py:1891]
-Traceback (most recent call last):
-  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/flask/app.py", line 2446, in wsgi_app
-    response = self.full_dispatch_request()
-  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/flask/app.py", line 1951, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/flask/app.py", line 1820, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
-    raise value
-  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/flask/app.py", line 1949, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/flask/app.py", line 1935, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "/home/orillion/CODING/HTBAH_Character_Creator/app/creator/routes.py", line 20, in creator_collection
-    return render_template('creator/collection.html', title=_('Sign In'), data=collection)
-NameError: name 'collection' is not defined
-2019-10-17 12:15:48,892 INFO: Microblog startup [in /Users/haikodidzoleit/CODING/HTBAH_creator/app/__init__.py:84]
-2019-10-17 12:15:58,751 ERROR: Exception on / [GET] [in /Library/Python/3.7/site-packages/flask/app.py:1891]
-Traceback (most recent call last):
-  File "/Library/Python/3.7/site-packages/flask/app.py", line 2446, in wsgi_app
-    response = self.full_dispatch_request()
-  File "/Library/Python/3.7/site-packages/flask/app.py", line 1951, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "/Library/Python/3.7/site-packages/flask/app.py", line 1820, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "/Library/Python/3.7/site-packages/flask/_compat.py", line 39, in reraise
-    raise value
-  File "/Library/Python/3.7/site-packages/flask/app.py", line 1949, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "/Library/Python/3.7/site-packages/flask/app.py", line 1935, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "/Users/haikodidzoleit/CODING/HTBAH_creator/app/main/routes.py", line 40, in index
-    events = db.session.query(db_event).all()
-NameError: name 'db_event' is not defined
-2019-10-17 12:24:01,165 INFO: Microblog startup [in /Users/haikodidzoleit/CODING/HTBAH_creator/app/__init__.py:84]
-2019-10-17 13:11:19,809 INFO: Microblog startup [in /Users/haikodidzoleit/CODING/HTBAH_creator/app/__init__.py:84]
-2019-10-17 13:11:24,821 ERROR: Exception on /creator/index [GET] [in /Library/Python/3.7/site-packages/flask/app.py:1891]
 Traceback (most recent call last):
   File "/Library/Python/3.7/site-packages/flask/app.py", line 2446, in wsgi_app
     response = self.full_dispatch_request()
@@ -111,6 +26,94 @@ Traceback (most recent call last):
   File "/Library/Python/3.7/site-packages/flask/app.py", line 1935, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
   File "/Users/haikodidzoleit/CODING/HTBAH_creator/app/creator/routes.py", line 13, in creator_index
-    collection = db.session.query(collection).limit(5).all()
-UnboundLocalError: local variable 'collection' referenced before assignment
-2019-10-17 13:13:12,718 INFO: Microblog startup [in /Users/haikodidzoleit/CODING/HTBAH_creator/app/__init__.py:84]
+    collection = db.session.query(Charactersheet).limit(5).all()
+  File "/Library/Python/3.7/site-packages/sqlalchemy/orm/scoping.py", line 162, in do
+    return getattr(self.registry(), name)(*args, **kwargs)
+  File "/Library/Python/3.7/site-packages/sqlalchemy/orm/session.py", line 1544, in query
+    return self._query_cls(entities, self, **kwargs)
+  File "/Library/Python/3.7/site-packages/sqlalchemy/orm/query.py", line 168, in __init__
+    self._set_entities(entities)
+  File "/Library/Python/3.7/site-packages/sqlalchemy/orm/query.py", line 200, in _set_entities
+    self._set_entity_selectables(self._entities)
+  File "/Library/Python/3.7/site-packages/sqlalchemy/orm/query.py", line 231, in _set_entity_selectables
+    ent.setup_entity(*d[entity])
+  File "/Library/Python/3.7/site-packages/sqlalchemy/orm/query.py", line 4121, in setup_entity
+    self._with_polymorphic = ext_info.with_polymorphic_mappers
+  File "/Library/Python/3.7/site-packages/sqlalchemy/util/langhelpers.py", line 855, in __get__
+    obj.__dict__[self.__name__] = result = self.fget(obj)
+  File "/Library/Python/3.7/site-packages/sqlalchemy/orm/mapper.py", line 2135, in _with_polymorphic_mappers
+    configure_mappers()
+  File "/Library/Python/3.7/site-packages/sqlalchemy/orm/mapper.py", line 3248, in configure_mappers
+    mapper._post_configure_properties()
+  File "/Library/Python/3.7/site-packages/sqlalchemy/orm/mapper.py", line 1947, in _post_configure_properties
+    prop.init()
+  File "/Library/Python/3.7/site-packages/sqlalchemy/orm/interfaces.py", line 196, in init
+    self.do_init()
+  File "/Library/Python/3.7/site-packages/sqlalchemy/orm/relationships.py", line 1861, in do_init
+    self._setup_join_conditions()
+  File "/Library/Python/3.7/site-packages/sqlalchemy/orm/relationships.py", line 1941, in _setup_join_conditions
+    can_be_synced_fn=self._columns_are_mapped,
+  File "/Library/Python/3.7/site-packages/sqlalchemy/orm/relationships.py", line 2246, in __init__
+    self._determine_joins()
+  File "/Library/Python/3.7/site-packages/sqlalchemy/orm/relationships.py", line 2383, in _determine_joins
+    "specify a 'primaryjoin' expression." % self.prop
+sqlalchemy.exc.NoForeignKeysError: Could not determine join condition between parent/child tables on relationship Charactersheet.abilities - there are no foreign keys linking these tables.  Ensure that referencing columns are associated with a ForeignKey or ForeignKeyConstraint, or specify a 'primaryjoin' expression.
+2019-10-17 13:38:49,971 INFO: Microblog startup [in /Users/haikodidzoleit/CODING/HTBAH_creator/app/__init__.py:84]
+2019-10-17 13:38:51,953 INFO: Microblog startup [in /Users/haikodidzoleit/CODING/HTBAH_creator/app/__init__.py:84]
+2019-10-17 13:39:11,320 INFO: Microblog startup [in /Users/haikodidzoleit/CODING/HTBAH_creator/app/__init__.py:84]
+2019-10-17 13:39:12,311 INFO: Microblog startup [in /Users/haikodidzoleit/CODING/HTBAH_creator/app/__init__.py:84]
+2019-10-17 13:39:13,372 INFO: Microblog startup [in /Users/haikodidzoleit/CODING/HTBAH_creator/app/__init__.py:84]
+2019-10-17 13:39:15,846 INFO: Microblog startup [in /Users/haikodidzoleit/CODING/HTBAH_creator/app/__init__.py:84]
+2019-10-17 13:39:18,655 ERROR: Exception on /creator/index [GET] [in /Library/Python/3.7/site-packages/flask/app.py:1891]
+Traceback (most recent call last):
+  File "/Library/Python/3.7/site-packages/flask/app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Library/Python/3.7/site-packages/flask/app.py", line 1951, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Library/Python/3.7/site-packages/flask/app.py", line 1820, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Library/Python/3.7/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/Library/Python/3.7/site-packages/flask/app.py", line 1949, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/3.7/site-packages/flask/app.py", line 1935, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/haikodidzoleit/CODING/HTBAH_creator/app/creator/routes.py", line 13, in creator_index
+    collection = db.session.query(Charactersheet).limit(5).all()
+  File "/Library/Python/3.7/site-packages/sqlalchemy/orm/scoping.py", line 162, in do
+    return getattr(self.registry(), name)(*args, **kwargs)
+  File "/Library/Python/3.7/site-packages/sqlalchemy/orm/session.py", line 1544, in query
+    return self._query_cls(entities, self, **kwargs)
+  File "/Library/Python/3.7/site-packages/sqlalchemy/orm/query.py", line 168, in __init__
+    self._set_entities(entities)
+  File "/Library/Python/3.7/site-packages/sqlalchemy/orm/query.py", line 200, in _set_entities
+    self._set_entity_selectables(self._entities)
+  File "/Library/Python/3.7/site-packages/sqlalchemy/orm/query.py", line 231, in _set_entity_selectables
+    ent.setup_entity(*d[entity])
+  File "/Library/Python/3.7/site-packages/sqlalchemy/orm/query.py", line 4121, in setup_entity
+    self._with_polymorphic = ext_info.with_polymorphic_mappers
+  File "/Library/Python/3.7/site-packages/sqlalchemy/util/langhelpers.py", line 855, in __get__
+    obj.__dict__[self.__name__] = result = self.fget(obj)
+  File "/Library/Python/3.7/site-packages/sqlalchemy/orm/mapper.py", line 2135, in _with_polymorphic_mappers
+    configure_mappers()
+  File "/Library/Python/3.7/site-packages/sqlalchemy/orm/mapper.py", line 3248, in configure_mappers
+    mapper._post_configure_properties()
+  File "/Library/Python/3.7/site-packages/sqlalchemy/orm/mapper.py", line 1947, in _post_configure_properties
+    prop.init()
+  File "/Library/Python/3.7/site-packages/sqlalchemy/orm/interfaces.py", line 196, in init
+    self.do_init()
+  File "/Library/Python/3.7/site-packages/sqlalchemy/orm/relationships.py", line 1864, in do_init
+    self._generate_backref()
+  File "/Library/Python/3.7/site-packages/sqlalchemy/orm/relationships.py", line 2121, in _generate_backref
+    mapper._configure_property(backref_key, relationship)
+  File "/Library/Python/3.7/site-packages/sqlalchemy/orm/mapper.py", line 1841, in _configure_property
+    prop.post_instrument_class(self)
+  File "/Library/Python/3.7/site-packages/sqlalchemy/orm/interfaces.py", line 577, in post_instrument_class
+    self.strategy.init_class_attribute(mapper)
+  File "/Library/Python/3.7/site-packages/sqlalchemy/orm/dynamic.py", line 38, in init_class_attribute
+    "uselist=False." % self.parent_property
+sqlalchemy.exc.InvalidRequestError: On relationship Abilities.Charactersheet, 'dynamic' loaders cannot be used with many-to-one/one-to-one relationships and/or uselist=False.
+2019-10-17 13:39:54,725 INFO: Microblog startup [in /Users/haikodidzoleit/CODING/HTBAH_creator/app/__init__.py:84]
+2019-10-17 13:39:55,713 INFO: Microblog startup [in /Users/haikodidzoleit/CODING/HTBAH_creator/app/__init__.py:84]
+2019-10-17 13:39:56,787 INFO: Microblog startup [in /Users/haikodidzoleit/CODING/HTBAH_creator/app/__init__.py:84]
+2019-10-17 13:39:59,427 INFO: Microblog startup [in /Users/haikodidzoleit/CODING/HTBAH_creator/app/__init__.py:84]

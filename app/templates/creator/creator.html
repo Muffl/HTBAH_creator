@@ -5,87 +5,155 @@
 
 
 
-  <!--/ Services Star /-->
-  <section class="section-services section-t8">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <div class="title-wrap d-flex justify-content-between">
-            <div class="title-box">
-              <h2 class="title-a"></h2>
-            </div>
+<!--/ Services Star /-->
+<section class="section-services section-t8">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="title-wrap d-flex justify-content-between">
+          <div class="title-box">
+            <h2 class="title-a"></h2>
           </div>
         </div>
       </div>
     </div>
-  </section>
-  <!--/ Services End /-->
+  </div>
+</section>
+<!--/ Services End /-->
 
-        <!--/ News Star /-->
-        <section class="section-news section-t8">
-          <div class="container">
-            <div class="container">
-              <div class="row">
-                <div class="col-md-7">
-                  <div class="card-box-c foo">
-                    <div class="card-header-c d-flex">
-                      <div class="card-box-ico">
-                        <div class="card-title-c align-self-center row">
-                          <span class="fa fa-edit">Magic stuff</span>
-                        </div>
-                        <h2 class="title-c"></h2>
-                      </div>
+<!--/ News Star /-->
+<section>
+  <div class="col-sm-2"></div>
+  <div class="container justify-content-md-center col-sm-6">
+    <div class="row ">
+        <span class="">Basics</span>
+      <h2 class="title-c"></h2>
+
+
+      <form role="form" class="form" method="post">
+        {{ form.csrf_token() }}
+        <div class="row">
+          <table class="table">
+            <tr>
+              <td >{{form.name.label}}</td><td>{{form.name(class_="form-control", placeholder="Name")}}</td>
+              <td class="col-sm-1">
+                </td>
+              <td rowspan="3" class="col-sm-4">
+                <div class="card-header-c d-flex">
+                  <div class="card-box-ico">
+                    <div class=" align-self-center row">
+                      <img class="rounded mx-auto d-block" src="{{url_for('static', filename="img/How_to_regelwerk.png")}}" alt="avatar">
                     </div>
-                    <div class="card-body-c">
-                      <p class="content-c">
-                        <form role="form" class="form" method="post">
-                            {{ form.csrf_token() }}
-                          <div class="row">
-                            {{form.name.label}}{{form.name(class_="form-control", placeholder="Name")}}
-                          </div><br>
-                          <div class="row">
-                            {{form.sex.label}}
-                            <table>
-                              <tr>
-                            {% for gender in form.sex %}
-                            <td>
-                            {{gender(class_="form-control")}}<br>
-                            {{gender.label}}
-                            </td>
-                            {% endfor %}
-                            </tr>
-                            </table><br>
-                          </div>
-                          <div class="row inline"><br>
-                            {{form.job.label}}{{form.job(class_="form-control")}}
-                            {{form.age.label}}{{form.age(class_="form-control")}}
-                            {{form.size.label}}{{form.size(class_="form-control")}}
-                          </div>
-                          <div class="row"><br>
-                            {{form.KK.label}}{{form.KK(class_="form-control")}}
-                            {{form.AU.label}}{{form.AU(class_="form-control")}}
-                            {{form.GE.label}}{{form.GE(class_="form-control")}}
-                            {{form.IN.label}}{{form.IN(class_="form-control")}}
-                            {{form.CH.label}}{{form.CH(class_="form-control")}}
-                            {{form.MB.label}}{{form.MB(class_="form-control")}}
-                            {{form.ATN.label}}{{form.ATN(class_="form-control")}}
-                            {{form.PA.label}}{{form.PA(class_="form-control")}}
-                            {{form.INI.label}}{{form.INI(class_="form-control")}}
-                            {{form.LE.label}}{{form.LE(class_="form-control")}}
-                            {{form.GG.label}}{{form.GG(class_="form-control")}}
-                          </div>
-                      </form>
-                      </p>
-                    </div>
-                    <div class="card-footer-c">
-                    </div>
+                    <h2 class="title-c"></h2>
                   </div>
                 </div>
-              </div>
-            </div>
-          </div>
-        </section>
-        <!--/ News End /-->
+
+                {{form.image(class_="form-control", placeholder="Path to image")}}
+              </td>
+              <td class="wd-25">
+                </td>
+            </tr>
+            <tr>
+              <td>
+                {{form.sex.label}}
+              </td>
+              <td>
+                <table class="table table-sm">
+                    {% for gender in form.sex %}
+                  <tr>
+                    <td>{{ gender.label(class_="form-check-label")}}</td>
+                    <td>{{gender(class_="form-control")}}</td>
+                  </tr>
+                  {% endfor %}
+                </table>
+              </td>
+              <td>
+                </td>
+            </tr>
+            <tr>
+              <td>
+                {{form.job.label}}
+              </td>
+              <td>{{form.job(class_="form-control")}}
+              </td>
+              <td>
+                </td>
+            </tr>
+            <tr>
+              <td>
+                {{form.age.label}}
+              </td>
+              <td>{{form.age(class_="form-control")}}
+              </td>
+              <td>
+                </td>
+            </tr>
+            <tr>
+              <td>
+                {{form.size.label}}
+              </td>
+              <td>{{form.size(class_="form-control")}}
+              </td>
+              <td>
+                </td>
+            </tr>
+          </table>
+
+        </div>
+
+        <div class="row"><br>
+          <table class="table table-sm">
+            <tr>
+              <td class="col-sm-3">Körperkraft ({{form.KK.label}})</td>
+              <td class="col-sm-2">{{form.KK(size=16,class_="form-control")}}</td>
+              <td></td>
+              <td class="col-sm-3">Attacke Nahkampf ({{form.ATN.label}})</td>
+              <td class="col-sm-2">{{form.ATN(size=4,class_="form-control", width=2)}}</td>
+            </tr>
+            <tr>
+              <td class="col-sm-3">Ausdauer ({{form.AU.label}})</td>
+              <td class="col-sm-2">{{form.AU(class_="form-control")}}</td>
+              <td></td>
+              <td class="col-sm-3">Parade ({{form.PA.label}})</td>
+              <td class="col-sm-2">{{form.PA(class_="form-control")}}</td>
+            </tr>
+            <tr>
+              <td class="col-sm-3">Geschicklichkeit ({{form.GE.label}})</td>
+              <td class="col-sm-2">{{form.GE(class_="form-control")}}</td>
+              <td></td>
+              <td class="col-sm-3">Initiative ({{form.INI.label}})</td>
+              <td class="col-sm-2">{{form.INI(class_="form-control")}}</td>
+            </tr>
+            <tr>
+              <td class="col-sm-3">Intelligenz ({{form.IN.label}})</td>
+              <td class="col-sm-2">{{form.IN(class_="form-control")}}</td>
+              <td></td>
+              <td class="col-sm-3">Lebensenergie ({{form.LE.label}})</td>
+              <td class="col-sm-2">{{form.LE(class_="form-control")}}</td>
+            </tr>
+            <tr>
+              <td class="col-sm-3">CHarme ({{form.CH.label}})</td>
+              <td class="col-sm-2">{{form.CH(class_="form-control")}}</td>
+              <td></td>
+              <td class="col-sm-3">Geistige Gesundheit ({{form.GG.label}})</td>
+              <td class="col-sm-2">{{form.GG(class_="form-control")}}</td>
+            </tr>
+            <tr>
+              <td class="col-sm-3">Mentale Belastbarkeit ({{form.MB.label}})</td>
+              <td class="col-sm-2">{{form.MB(class_="form-control")}}</td>
+              <td></td>
+<td>  <button type="submit" class="btn btn-primary">{{_('Continue')}}</button></td>
+            </tr>
+          </table>
+
+        </div>
+</div>
+</form>
+      </div>
+    </div>
+    <div class="col-sm-2"></div>
+  </section>
+  <!--/ News End /-->
 
 
-{% endblock %}
+  {% endblock %}

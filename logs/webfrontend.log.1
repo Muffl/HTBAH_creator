@@ -1,99 +1,95 @@
-2019-10-17 14:00:42,187 ERROR: Exception on /creator/create [GET] [in /Library/Python/3.7/site-packages/flask/app.py:1891]
+2019-10-18 17:35:56,856 ERROR: Exception on /creator/create [GET] [in /home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/flask/app.py:1891]
 Traceback (most recent call last):
-  File "/Library/Python/3.7/site-packages/flask/app.py", line 2446, in wsgi_app
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/flask/app.py", line 2446, in wsgi_app
     response = self.full_dispatch_request()
-  File "/Library/Python/3.7/site-packages/flask/app.py", line 1951, in full_dispatch_request
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/flask/app.py", line 1951, in full_dispatch_request
     rv = self.handle_user_exception(e)
-  File "/Library/Python/3.7/site-packages/flask/app.py", line 1820, in handle_user_exception
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/flask/app.py", line 1820, in handle_user_exception
     reraise(exc_type, exc_value, tb)
-  File "/Library/Python/3.7/site-packages/flask/_compat.py", line 39, in reraise
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
     raise value
-  File "/Library/Python/3.7/site-packages/flask/app.py", line 1949, in full_dispatch_request
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/flask/app.py", line 1949, in full_dispatch_request
     rv = self.dispatch_request()
-  File "/Library/Python/3.7/site-packages/flask/app.py", line 1935, in dispatch_request
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/flask/app.py", line 1935, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "/Users/haikodidzoleit/CODING/HTBAH_creator/app/creator/routes.py", line 30, in creator_create
+  File "/home/orillion/CODING/HTBAH_Character_Creator/app/creator/routes.py", line 30, in creator_create
     return render_template('creator/creator.html', title=_('Sign In'), form=form)
-  File "/Library/Python/3.7/site-packages/flask/templating.py", line 140, in render_template
-    ctx.app,
-  File "/Library/Python/3.7/site-packages/flask/templating.py", line 120, in _render
-    rv = template.render(context)
-  File "/Library/Python/3.7/site-packages/jinja2/asyncsupport.py", line 76, in render
-    return original_render(self, *args, **kwargs)
-  File "/Library/Python/3.7/site-packages/jinja2/environment.py", line 1008, in render
-    return self.environment.handle_exception(exc_info, True)
-  File "/Library/Python/3.7/site-packages/jinja2/environment.py", line 780, in handle_exception
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/flask/templating.py", line 138, in render_template
+    ctx.app.jinja_env.get_or_select_template(template_name_or_list),
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/jinja2/environment.py", line 869, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/jinja2/environment.py", line 830, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/jinja2/environment.py", line 804, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/jinja2/loaders.py", line 125, in load
+    code = environment.compile(source, name, filename)
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/jinja2/environment.py", line 591, in compile
+    self.handle_exception(exc_info, source_hint=source_hint)
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/jinja2/environment.py", line 780, in handle_exception
     reraise(exc_type, exc_value, tb)
-  File "/Library/Python/3.7/site-packages/jinja2/_compat.py", line 37, in reraise
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/jinja2/_compat.py", line 37, in reraise
     raise value.with_traceback(tb)
-  File "/Users/haikodidzoleit/CODING/HTBAH_creator/app/templates/creator/creator.html", line 2, in top-level template code
-    {% import 'bootstrap/wtf.html' as wtf %}
-  File "/Library/Python/3.7/site-packages/jinja2/environment.py", line 1005, in render
-    return concat(self.root_render_func(self.new_context(vars)))
-  File "/Users/haikodidzoleit/CODING/HTBAH_creator/app/templates/creator/creator.html", line 17, in root
-    </div>
-  File "/Users/haikodidzoleit/CODING/HTBAH_creator/app/templates/base.html", line 14, in root
-    <link rel="stylesheet" href="{{ url_for('static', filename='library/bootstrap/css/bootstrap.min.css')}}">
-  File "/Library/Python/3.7/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 10, in root
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  File "/Library/Python/3.7/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 20, in block_doc
-    {% block body -%}
-  File "/Library/Python/3.7/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 39, in block_html
-  File "/Library/Python/3.7/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 92, in block_body
-  File "/Users/haikodidzoleit/CODING/HTBAH_creator/app/templates/base.html", line 121, in block_content
-  File "/Users/haikodidzoleit/CODING/HTBAH_creator/app/templates/creator/creator.html", line 27, in block_app_content
-    <div class="container">
-  File "/Library/Python/3.7/site-packages/jinja2/environment.py", line 430, in getattr
-    return getattr(obj, attribute)
-jinja2.exceptions.UndefinedError: 'app.creator.forms.Creator object' has no attribute 'permissionname'
-2019-10-17 14:01:44,652 INFO: Microblog startup [in /Users/haikodidzoleit/CODING/HTBAH_creator/app/__init__.py:84]
-2019-10-17 14:01:48,842 ERROR: Exception on /creator/create [GET] [in /Library/Python/3.7/site-packages/flask/app.py:1891]
-Traceback (most recent call last):
-  File "/Library/Python/3.7/site-packages/flask/app.py", line 2446, in wsgi_app
-    response = self.full_dispatch_request()
-  File "/Library/Python/3.7/site-packages/flask/app.py", line 1951, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "/Library/Python/3.7/site-packages/flask/app.py", line 1820, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "/Library/Python/3.7/site-packages/flask/_compat.py", line 39, in reraise
-    raise value
-  File "/Library/Python/3.7/site-packages/flask/app.py", line 1949, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "/Library/Python/3.7/site-packages/flask/app.py", line 1935, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "/Users/haikodidzoleit/CODING/HTBAH_creator/app/creator/routes.py", line 30, in creator_create
-    return render_template('creator/creator.html', title=_('Sign In'), form=form)
-  File "/Library/Python/3.7/site-packages/flask/templating.py", line 140, in render_template
-    ctx.app,
-  File "/Library/Python/3.7/site-packages/flask/templating.py", line 120, in _render
-    rv = template.render(context)
-  File "/Library/Python/3.7/site-packages/jinja2/asyncsupport.py", line 76, in render
-    return original_render(self, *args, **kwargs)
-  File "/Library/Python/3.7/site-packages/jinja2/environment.py", line 1008, in render
-    return self.environment.handle_exception(exc_info, True)
-  File "/Library/Python/3.7/site-packages/jinja2/environment.py", line 780, in handle_exception
-    reraise(exc_type, exc_value, tb)
-  File "/Library/Python/3.7/site-packages/jinja2/_compat.py", line 37, in reraise
-    raise value.with_traceback(tb)
-  File "/Users/haikodidzoleit/CODING/HTBAH_creator/app/templates/creator/creator.html", line 2, in top-level template code
-    {% import 'bootstrap/wtf.html' as wtf %}
-  File "/Library/Python/3.7/site-packages/jinja2/environment.py", line 1005, in render
-    return concat(self.root_render_func(self.new_context(vars)))
-  File "/Users/haikodidzoleit/CODING/HTBAH_creator/app/templates/creator/creator.html", line 17, in root
-    </div>
-  File "/Users/haikodidzoleit/CODING/HTBAH_creator/app/templates/base.html", line 14, in root
-    <link rel="stylesheet" href="{{ url_for('static', filename='library/bootstrap/css/bootstrap.min.css')}}">
-  File "/Library/Python/3.7/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 10, in root
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  File "/Library/Python/3.7/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 20, in block_doc
-    {% block body -%}
-  File "/Library/Python/3.7/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 39, in block_html
-  File "/Library/Python/3.7/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 92, in block_body
-  File "/Users/haikodidzoleit/CODING/HTBAH_creator/app/templates/base.html", line 121, in block_content
-  File "/Users/haikodidzoleit/CODING/HTBAH_creator/app/templates/creator/creator.html", line 27, in block_app_content
-    <div class="container">
-  File "/Library/Python/3.7/site-packages/jinja2/environment.py", line 430, in getattr
-    return getattr(obj, attribute)
-jinja2.exceptions.UndefinedError: 'app.creator.forms.Form_Creator object' has no attribute 'permissionname'
-2019-10-17 14:03:05,390 INFO: Microblog startup [in /Users/haikodidzoleit/CODING/HTBAH_creator/app/__init__.py:84]
-2019-10-17 14:22:49,857 INFO: Microblog startup [in /Users/haikodidzoleit/CODING/HTBAH_creator/app/__init__.py:84]
+  File "/home/orillion/CODING/HTBAH_Character_Creator/app/templates/creator/creator.html", line 45, in template
+    <img class="rounded mx-auto d-block" src="{{url_for('static', filename="img/How_to_regelwerk.png" alt="avatar">
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/jinja2/environment.py", line 497, in _parse
+    return Parser(self, source, name, encode_filename(filename)).parse()
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/jinja2/parser.py", line 901, in parse
+    result = nodes.Template(self.subparse(), lineno=1)
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/jinja2/parser.py", line 883, in subparse
+    rv = self.parse_statement()
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/jinja2/parser.py", line 130, in parse_statement
+    return getattr(self, 'parse_' + self.stream.current.value)()
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/jinja2/parser.py", line 268, in parse_block
+    node.body = self.parse_statements(('name:endblock',), drop_needle=True)
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/jinja2/parser.py", line 165, in parse_statements
+    result = self.subparse(end_tokens)
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/jinja2/parser.py", line 875, in subparse
+    add_data(self.parse_tuple(with_condexpr=True))
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/jinja2/parser.py", line 620, in parse_tuple
+    args.append(parse())
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/jinja2/parser.py", line 432, in parse_expression
+    return self.parse_condexpr()
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/jinja2/parser.py", line 437, in parse_condexpr
+    expr1 = self.parse_or()
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/jinja2/parser.py", line 450, in parse_or
+    left = self.parse_and()
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/jinja2/parser.py", line 459, in parse_and
+    left = self.parse_not()
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/jinja2/parser.py", line 470, in parse_not
+    return self.parse_compare()
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/jinja2/parser.py", line 474, in parse_compare
+    expr = self.parse_math1()
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/jinja2/parser.py", line 496, in parse_math1
+    left = self.parse_concat()
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/jinja2/parser.py", line 507, in parse_concat
+    args = [self.parse_math2()]
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/jinja2/parser.py", line 517, in parse_math2
+    left = self.parse_pow()
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/jinja2/parser.py", line 528, in parse_pow
+    left = self.parse_unary()
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/jinja2/parser.py", line 547, in parse_unary
+    node = self.parse_postfix(node)
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/jinja2/parser.py", line 676, in parse_postfix
+    node = self.parse_call(node)
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/jinja2/parser.py", line 767, in parse_call
+    self.stream.expect('comma')
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/jinja2/lexer.py", line 384, in expect
+    self.name, self.filename)
+jinja2.exceptions.TemplateSyntaxError: expected token ',', got 'alt'
+2019-10-18 17:36:18,241 INFO: Microblog startup [in /home/orillion/CODING/HTBAH_Character_Creator/app/__init__.py:84]
+2019-10-18 17:36:42,746 INFO: Microblog startup [in /home/orillion/CODING/HTBAH_Character_Creator/app/__init__.py:84]
+2019-10-18 17:36:50,417 INFO: Microblog startup [in /home/orillion/CODING/HTBAH_Character_Creator/app/__init__.py:84]
+2019-10-18 17:37:05,873 INFO: Microblog startup [in /home/orillion/CODING/HTBAH_Character_Creator/app/__init__.py:84]
+2019-10-18 17:37:23,576 INFO: Microblog startup [in /home/orillion/CODING/HTBAH_Character_Creator/app/__init__.py:84]
+2019-10-18 17:37:33,309 INFO: Microblog startup [in /home/orillion/CODING/HTBAH_Character_Creator/app/__init__.py:84]
+2019-10-18 17:37:44,170 INFO: Microblog startup [in /home/orillion/CODING/HTBAH_Character_Creator/app/__init__.py:84]
+2019-10-18 17:38:29,985 INFO: Microblog startup [in /home/orillion/CODING/HTBAH_Character_Creator/app/__init__.py:84]
+2019-10-18 17:38:52,070 INFO: Microblog startup [in /home/orillion/CODING/HTBAH_Character_Creator/app/__init__.py:84]
+2019-10-18 17:39:06,878 INFO: Microblog startup [in /home/orillion/CODING/HTBAH_Character_Creator/app/__init__.py:84]
+2019-10-18 17:41:16,667 INFO: Microblog startup [in /home/orillion/CODING/HTBAH_Character_Creator/app/__init__.py:84]
+2019-10-18 17:46:24,231 INFO: Microblog startup [in /home/orillion/CODING/HTBAH_Character_Creator/app/__init__.py:84]
+2019-10-18 17:47:30,617 INFO: Microblog startup [in /home/orillion/CODING/HTBAH_Character_Creator/app/__init__.py:84]
+2019-10-18 17:50:10,383 INFO: Microblog startup [in /home/orillion/CODING/HTBAH_Character_Creator/app/__init__.py:84]
+2019-10-18 17:50:53,446 INFO: Microblog startup [in /home/orillion/CODING/HTBAH_Character_Creator/app/__init__.py:84]
+2019-10-18 17:51:21,758 INFO: Microblog startup [in /home/orillion/CODING/HTBAH_Character_Creator/app/__init__.py:84]

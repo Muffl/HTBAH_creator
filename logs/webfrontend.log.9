@@ -1,40 +1,4 @@
-2019-10-17 13:13:15,334 ERROR: Exception on /creator/index [GET] [in /Library/Python/3.7/site-packages/flask/app.py:1891]
-Traceback (most recent call last):
-  File "/Library/Python/3.7/site-packages/flask/app.py", line 2446, in wsgi_app
-    response = self.full_dispatch_request()
-  File "/Library/Python/3.7/site-packages/flask/app.py", line 1951, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "/Library/Python/3.7/site-packages/flask/app.py", line 1820, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "/Library/Python/3.7/site-packages/flask/_compat.py", line 39, in reraise
-    raise value
-  File "/Library/Python/3.7/site-packages/flask/app.py", line 1949, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "/Library/Python/3.7/site-packages/flask/app.py", line 1935, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "/Users/haikodidzoleit/CODING/HTBAH_creator/app/creator/routes.py", line 13, in creator_index
-    Collection = db.session.query(Collection).limit(5).all()
-UnboundLocalError: local variable 'Collection' referenced before assignment
-2019-10-17 13:13:33,237 INFO: Microblog startup [in /Users/haikodidzoleit/CODING/HTBAH_creator/app/__init__.py:84]
-2019-10-17 13:13:35,020 ERROR: Exception on /creator/index [GET] [in /Library/Python/3.7/site-packages/flask/app.py:1891]
-Traceback (most recent call last):
-  File "/Library/Python/3.7/site-packages/flask/app.py", line 2446, in wsgi_app
-    response = self.full_dispatch_request()
-  File "/Library/Python/3.7/site-packages/flask/app.py", line 1951, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "/Library/Python/3.7/site-packages/flask/app.py", line 1820, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "/Library/Python/3.7/site-packages/flask/_compat.py", line 39, in reraise
-    raise value
-  File "/Library/Python/3.7/site-packages/flask/app.py", line 1949, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "/Library/Python/3.7/site-packages/flask/app.py", line 1935, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "/Users/haikodidzoleit/CODING/HTBAH_creator/app/creator/routes.py", line 13, in creator_index
-    Collection = db.session.query(Collection).limit(5).all()
-UnboundLocalError: local variable 'Collection' referenced before assignment
-2019-10-17 13:14:09,737 INFO: Microblog startup [in /Users/haikodidzoleit/CODING/HTBAH_creator/app/__init__.py:84]
-2019-10-17 13:14:11,893 ERROR: Exception on /creator/index [GET] [in /Library/Python/3.7/site-packages/flask/app.py:1891]
+2019-10-17 13:40:02,363 ERROR: Exception on /creator/index [GET] [in /Library/Python/3.7/site-packages/flask/app.py:1891]
 Traceback (most recent call last):
   File "/Library/Python/3.7/site-packages/sqlalchemy/orm/relationships.py", line 2361, in _determine_joins
     consider_as_foreign_keys=consider_as_foreign_keys,
@@ -62,7 +26,7 @@ Traceback (most recent call last):
   File "/Library/Python/3.7/site-packages/flask/app.py", line 1935, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
   File "/Users/haikodidzoleit/CODING/HTBAH_creator/app/creator/routes.py", line 13, in creator_index
-    collection = db.session.query(Collection).limit(5).all()
+    collection = db.session.query(Charactersheet).limit(5).all()
   File "/Library/Python/3.7/site-packages/sqlalchemy/orm/scoping.py", line 162, in do
     return getattr(self.registry(), name)(*args, **kwargs)
   File "/Library/Python/3.7/site-packages/sqlalchemy/orm/session.py", line 1544, in query
@@ -94,24 +58,73 @@ Traceback (most recent call last):
   File "/Library/Python/3.7/site-packages/sqlalchemy/orm/relationships.py", line 2383, in _determine_joins
     "specify a 'primaryjoin' expression." % self.prop
 sqlalchemy.exc.NoForeignKeysError: Could not determine join condition between parent/child tables on relationship Charactersheet.abilities - there are no foreign keys linking these tables.  Ensure that referencing columns are associated with a ForeignKey or ForeignKeyConstraint, or specify a 'primaryjoin' expression.
-2019-10-17 13:15:00,427 INFO: Microblog startup [in /Users/haikodidzoleit/CODING/HTBAH_creator/app/__init__.py:84]
-2019-10-17 13:15:05,959 INFO: Microblog startup [in /Users/haikodidzoleit/CODING/HTBAH_creator/app/__init__.py:84]
-2019-10-17 13:15:43,305 INFO: Microblog startup [in /Users/haikodidzoleit/CODING/HTBAH_creator/app/__init__.py:84]
-2019-10-17 13:15:46,068 INFO: Microblog startup [in /Users/haikodidzoleit/CODING/HTBAH_creator/app/__init__.py:84]
-2019-10-17 13:15:48,799 INFO: Microblog startup [in /Users/haikodidzoleit/CODING/HTBAH_creator/app/__init__.py:84]
-2019-10-17 13:15:52,675 INFO: Microblog startup [in /Users/haikodidzoleit/CODING/HTBAH_creator/app/__init__.py:84]
-2019-10-17 13:16:00,998 INFO: Microblog startup [in /Users/haikodidzoleit/CODING/HTBAH_creator/app/__init__.py:84]
-2019-10-17 13:16:09,526 INFO: Microblog startup [in /Users/haikodidzoleit/CODING/HTBAH_creator/app/__init__.py:84]
-2019-10-17 13:16:24,485 INFO: Microblog startup [in /Users/haikodidzoleit/CODING/HTBAH_creator/app/__init__.py:84]
-2019-10-17 13:16:28,208 INFO: Microblog startup [in /Users/haikodidzoleit/CODING/HTBAH_creator/app/__init__.py:84]
-2019-10-17 13:16:34,019 INFO: Microblog startup [in /Users/haikodidzoleit/CODING/HTBAH_creator/app/__init__.py:84]
-2019-10-17 13:16:37,304 INFO: Microblog startup [in /Users/haikodidzoleit/CODING/HTBAH_creator/app/__init__.py:84]
-2019-10-17 13:29:56,101 INFO: Microblog startup [in /Users/haikodidzoleit/CODING/HTBAH_creator/app/__init__.py:84]
-2019-10-17 13:30:28,037 INFO: Microblog startup [in /Users/haikodidzoleit/CODING/HTBAH_creator/app/__init__.py:84]
-2019-10-17 13:30:32,631 INFO: Microblog startup [in /Users/haikodidzoleit/CODING/HTBAH_creator/app/__init__.py:84]
-2019-10-17 13:30:37,758 INFO: Microblog startup [in /Users/haikodidzoleit/CODING/HTBAH_creator/app/__init__.py:84]
-2019-10-17 13:30:56,811 INFO: Microblog startup [in /Users/haikodidzoleit/CODING/HTBAH_creator/app/__init__.py:84]
-2019-10-17 13:31:04,774 INFO: Microblog startup [in /Users/haikodidzoleit/CODING/HTBAH_creator/app/__init__.py:84]
-2019-10-17 13:31:08,816 INFO: Microblog startup [in /Users/haikodidzoleit/CODING/HTBAH_creator/app/__init__.py:84]
-2019-10-17 13:31:14,037 INFO: Microblog startup [in /Users/haikodidzoleit/CODING/HTBAH_creator/app/__init__.py:84]
-2019-10-17 13:31:19,223 INFO: Microblog startup [in /Users/haikodidzoleit/CODING/HTBAH_creator/app/__init__.py:84]
+2019-10-17 13:40:54,961 INFO: Microblog startup [in /Users/haikodidzoleit/CODING/HTBAH_creator/app/__init__.py:84]
+2019-10-17 13:40:56,201 INFO: Microblog startup [in /Users/haikodidzoleit/CODING/HTBAH_creator/app/__init__.py:84]
+2019-10-17 13:41:14,533 INFO: Microblog startup [in /Users/haikodidzoleit/CODING/HTBAH_creator/app/__init__.py:84]
+2019-10-17 13:41:15,541 INFO: Microblog startup [in /Users/haikodidzoleit/CODING/HTBAH_creator/app/__init__.py:84]
+2019-10-17 13:41:16,588 INFO: Microblog startup [in /Users/haikodidzoleit/CODING/HTBAH_creator/app/__init__.py:84]
+2019-10-17 13:41:20,590 INFO: Microblog startup [in /Users/haikodidzoleit/CODING/HTBAH_creator/app/__init__.py:84]
+2019-10-17 13:41:23,597 ERROR: Exception on /creator/index [GET] [in /Library/Python/3.7/site-packages/flask/app.py:1891]
+Traceback (most recent call last):
+  File "/Library/Python/3.7/site-packages/sqlalchemy/orm/relationships.py", line 2361, in _determine_joins
+    consider_as_foreign_keys=consider_as_foreign_keys,
+  File "<string>", line 2, in join_condition
+  File "<string>", line 2, in _join_condition
+  File "/Library/Python/3.7/site-packages/sqlalchemy/util/deprecations.py", line 128, in warned
+    return fn(*args, **kwargs)
+  File "/Library/Python/3.7/site-packages/sqlalchemy/sql/selectable.py", line 947, in _join_condition
+    % (a.description, b.description, hint)
+sqlalchemy.exc.NoForeignKeysError: Can't find any foreign key relationships between 'Charactersheet' and 'Abilities'.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Library/Python/3.7/site-packages/flask/app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Library/Python/3.7/site-packages/flask/app.py", line 1951, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Library/Python/3.7/site-packages/flask/app.py", line 1820, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Library/Python/3.7/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/Library/Python/3.7/site-packages/flask/app.py", line 1949, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/3.7/site-packages/flask/app.py", line 1935, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/haikodidzoleit/CODING/HTBAH_creator/app/creator/routes.py", line 13, in creator_index
+    collection = db.session.query(Charactersheet).limit(5).all()
+  File "/Library/Python/3.7/site-packages/sqlalchemy/orm/scoping.py", line 162, in do
+    return getattr(self.registry(), name)(*args, **kwargs)
+  File "/Library/Python/3.7/site-packages/sqlalchemy/orm/session.py", line 1544, in query
+    return self._query_cls(entities, self, **kwargs)
+  File "/Library/Python/3.7/site-packages/sqlalchemy/orm/query.py", line 168, in __init__
+    self._set_entities(entities)
+  File "/Library/Python/3.7/site-packages/sqlalchemy/orm/query.py", line 200, in _set_entities
+    self._set_entity_selectables(self._entities)
+  File "/Library/Python/3.7/site-packages/sqlalchemy/orm/query.py", line 231, in _set_entity_selectables
+    ent.setup_entity(*d[entity])
+  File "/Library/Python/3.7/site-packages/sqlalchemy/orm/query.py", line 4121, in setup_entity
+    self._with_polymorphic = ext_info.with_polymorphic_mappers
+  File "/Library/Python/3.7/site-packages/sqlalchemy/util/langhelpers.py", line 855, in __get__
+    obj.__dict__[self.__name__] = result = self.fget(obj)
+  File "/Library/Python/3.7/site-packages/sqlalchemy/orm/mapper.py", line 2135, in _with_polymorphic_mappers
+    configure_mappers()
+  File "/Library/Python/3.7/site-packages/sqlalchemy/orm/mapper.py", line 3248, in configure_mappers
+    mapper._post_configure_properties()
+  File "/Library/Python/3.7/site-packages/sqlalchemy/orm/mapper.py", line 1947, in _post_configure_properties
+    prop.init()
+  File "/Library/Python/3.7/site-packages/sqlalchemy/orm/interfaces.py", line 196, in init
+    self.do_init()
+  File "/Library/Python/3.7/site-packages/sqlalchemy/orm/relationships.py", line 1861, in do_init
+    self._setup_join_conditions()
+  File "/Library/Python/3.7/site-packages/sqlalchemy/orm/relationships.py", line 1941, in _setup_join_conditions
+    can_be_synced_fn=self._columns_are_mapped,
+  File "/Library/Python/3.7/site-packages/sqlalchemy/orm/relationships.py", line 2246, in __init__
+    self._determine_joins()
+  File "/Library/Python/3.7/site-packages/sqlalchemy/orm/relationships.py", line 2383, in _determine_joins
+    "specify a 'primaryjoin' expression." % self.prop
+sqlalchemy.exc.NoForeignKeysError: Could not determine join condition between parent/child tables on relationship Charactersheet.abilities - there are no foreign keys linking these tables.  Ensure that referencing columns are associated with a ForeignKey or ForeignKeyConstraint, or specify a 'primaryjoin' expression.
+2019-10-17 13:42:22,737 INFO: Microblog startup [in /Users/haikodidzoleit/CODING/HTBAH_creator/app/__init__.py:84]
+2019-10-17 13:42:23,758 INFO: Microblog startup [in /Users/haikodidzoleit/CODING/HTBAH_creator/app/__init__.py:84]
+2019-10-17 13:42:24,810 INFO: Microblog startup [in /Users/haikodidzoleit/CODING/HTBAH_creator/app/__init__.py:84]
+2019-10-17 13:42:28,839 INFO: Microblog startup [in /Users/haikodidzoleit/CODING/HTBAH_creator/app/__init__.py:84]
