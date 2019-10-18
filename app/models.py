@@ -35,8 +35,15 @@ class Abilities(db.Model):
     __tablename__ = 'Abilities'
     id = db.Column(db.Integer, primary_key=True)
     char = db.Column("char", db.Integer, db.ForeignKey("Charactersheet.id"))
+    category = db.relationship("Abilities_cat", backref=db.backref("abilities"))
     Name = db.Column(db.String(150), index=True)
     value = db.Column(db.Integer, default =0)
+
+class Abilities_cat(db.Model):
+    __tablename__ = 'Abilites_cat'
+    id = db.Column(db.Integer, primary_key=True)
+    Abilities = db.Column("Abilities", db.Integer, db.ForeignKey("Abilities.id"))
+    categroy = db.Column(db.String(150), index=True, unique=True)
 
 class Download(db.Model):
     __tablename__ = 'download'

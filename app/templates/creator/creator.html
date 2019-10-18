@@ -25,135 +25,179 @@
 <section>
   <div class="col-sm-2"></div>
   <div class="container justify-content-md-center col-sm-6">
-    <div class="row ">
-        <span class="">Basics</span>
-      <h2 class="title-c"></h2>
+###
+    <p>
+  <a class="btn btn-primary" data-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Toggle first element</a>
+  <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">Toggle second element</button>
+  <button class="btn btn-primary" type="button" data-toggle="collapse" data-target=".multi-collapse" aria-expanded="false" aria-controls="multiCollapseExample1 multiCollapseExample2">Toggle both elements</button>
+</p>
+<div class="row">
+  <div class="col">
+    <div class="collapse multi-collapse" id="multiCollapseExample1">
+      <div class="card card-body">
+        <div class="row ">
+            <span class="">Basics</span>
+          <h2 class="title-c"></h2>
 
 
-      <form role="form" class="form" method="post">
-        {{ form.csrf_token() }}
-        <div class="row">
-          <table class="table">
-            <tr>
-              <td >{{form.name.label}}</td><td>{{form.name(class_="form-control", placeholder="Name")}}</td>
-              <td class="col-sm-1">
-                </td>
-              <td rowspan="3" class="col-sm-4">
-                <div class="card-header-c d-flex">
-                  <div class="card-box-ico">
-                    <div class=" align-self-center row">
-                      <img class="rounded mx-auto d-block" src="{{url_for('static', filename="img/How_to_regelwerk.png")}}" alt="avatar">
+          <form role="form" class="form" method="post">
+            {{ form.csrf_token() }}
+            <div class="row">
+              <table class="table">
+                <tr>
+                  <td >{{form.name.label}}</td><td>{{form.name(class_="form-control", placeholder="Name")}}</td>
+                  <td class="col-sm-1">
+                    </td>
+                  <td rowspan="3" class="col-sm-4">
+                    <div class="card-header-c d-flex">
+                      <div class="card-box-ico">
+                        <div class=" align-self-center row">
+                          <img class="rounded mx-auto d-block" src="{{url_for('static', filename="img/How_to_regelwerk.png")}}" alt="avatar">
+                        </div>
+                        <h2 class="title-c"></h2>
+                      </div>
                     </div>
-                    <h2 class="title-c"></h2>
-                  </div>
-                </div>
 
-                {{form.image(class_="form-control", placeholder="Path to image")}}
-              </td>
-              <td class="wd-25">
-                </td>
-            </tr>
-            <tr>
-              <td>
-                {{form.sex.label}}
-              </td>
-              <td>
-                <table class="table table-sm">
-                    {% for gender in form.sex %}
-                  <tr>
-                    <td>{{ gender.label(class_="form-check-label")}}</td>
-                    <td>{{gender(class_="form-control")}}</td>
-                  </tr>
-                  {% endfor %}
-                </table>
-              </td>
-              <td>
-                </td>
-            </tr>
-            <tr>
-              <td>
-                {{form.job.label}}
-              </td>
-              <td>{{form.job(class_="form-control")}}
-              </td>
-              <td>
-                </td>
-            </tr>
-            <tr>
-              <td>
-                {{form.age.label}}
-              </td>
-              <td>{{form.age(class_="form-control")}}
-              </td>
-              <td>
-                </td>
-            </tr>
-            <tr>
-              <td>
-                {{form.size.label}}
-              </td>
-              <td>{{form.size(class_="form-control")}}
-              </td>
-              <td>
-                </td>
-            </tr>
-          </table>
+                    {{form.image(class_="form-control", placeholder="Path to image")}}
+                  </td>
+                  <td class="wd-25">
+                    </td>
+                </tr>
+                <tr>
+                  <td>
+                    {{form.sex.label}}
+                  </td>
+                  <td>
+                    <table class="table table-sm">
+                        {% for gender in form.sex %}
+                      <tr>
+                        <td>{{ gender.label(class_="form-check-label")}}</td>
+                        <td>{{gender(class_="form-control")}}</td>
+                      </tr>
+                      {% endfor %}
+                    </table>
+                  </td>
+                  <td>
+                    </td>
+                </tr>
+                <tr>
+                  <td>
+                    {{form.job.label}}
+                  </td>
+                  <td>{{form.job(class_="form-control")}}
+                  </td>
+                  <td>
+                    </td>
+                </tr>
+                <tr>
+                  <td>
+                    {{form.age.label}}
+                  </td>
+                  <td>{{form.age(class_="form-control")}}
+                  </td>
+                  <td>
+                    </td>
+                </tr>
+                <tr>
+                  <td>
+                    {{form.size.label}}
+                  </td>
+                  <td>{{form.size(class_="form-control")}}
+                  </td>
+                  <td>
+                    </td>
+                </tr>
+              </table>
 
-        </div>
+            </div>
 
-        <div class="row"><br>
-          <table class="table table-sm">
-            <tr>
-              <td class="col-sm-3">Körperkraft ({{form.KK.label}})</td>
-              <td class="col-sm-2">{{form.KK(size=16,class_="form-control")}}</td>
-              <td></td>
-              <td class="col-sm-3">Attacke Nahkampf ({{form.ATN.label}})</td>
-              <td class="col-sm-2">{{form.ATN(size=4,class_="form-control", width=2)}}</td>
-            </tr>
-            <tr>
-              <td class="col-sm-3">Ausdauer ({{form.AU.label}})</td>
-              <td class="col-sm-2">{{form.AU(class_="form-control")}}</td>
-              <td></td>
-              <td class="col-sm-3">Parade ({{form.PA.label}})</td>
-              <td class="col-sm-2">{{form.PA(class_="form-control")}}</td>
-            </tr>
-            <tr>
-              <td class="col-sm-3">Geschicklichkeit ({{form.GE.label}})</td>
-              <td class="col-sm-2">{{form.GE(class_="form-control")}}</td>
-              <td></td>
-              <td class="col-sm-3">Initiative ({{form.INI.label}})</td>
-              <td class="col-sm-2">{{form.INI(class_="form-control")}}</td>
-            </tr>
-            <tr>
-              <td class="col-sm-3">Intelligenz ({{form.IN.label}})</td>
-              <td class="col-sm-2">{{form.IN(class_="form-control")}}</td>
-              <td></td>
-              <td class="col-sm-3">Lebensenergie ({{form.LE.label}})</td>
-              <td class="col-sm-2">{{form.LE(class_="form-control")}}</td>
-            </tr>
-            <tr>
-              <td class="col-sm-3">CHarme ({{form.CH.label}})</td>
-              <td class="col-sm-2">{{form.CH(class_="form-control")}}</td>
-              <td></td>
-              <td class="col-sm-3">Geistige Gesundheit ({{form.GG.label}})</td>
-              <td class="col-sm-2">{{form.GG(class_="form-control")}}</td>
-            </tr>
-            <tr>
-              <td class="col-sm-3">Mentale Belastbarkeit ({{form.MB.label}})</td>
-              <td class="col-sm-2">{{form.MB(class_="form-control")}}</td>
-              <td></td>
-<td>  <button type="submit" class="btn btn-primary">{{_('Continue')}}</button></td>
-            </tr>
-          </table>
+            <div class="row"><br>
+              <table class="table table-sm">
+                <tr>
+                  <td class="col-sm-3">Körperkraft ({{form.KK.label}})</td>
+                  <td class="col-sm-2">{{form.KK(size=16,class_="form-control")}}</td>
+                  <td></td>
+                  <td class="col-sm-3">Attacke Nahkampf ({{form.ATN.label}})</td>
+                  <td class="col-sm-2">{{form.ATN(size=4,class_="form-control", width=2)}}</td>
+                </tr>
+                <tr>
+                  <td class="col-sm-3">Ausdauer ({{form.AU.label}})</td>
+                  <td class="col-sm-2">{{form.AU(class_="form-control")}}</td>
+                  <td></td>
+                  <td class="col-sm-3">Parade ({{form.PA.label}})</td>
+                  <td class="col-sm-2">{{form.PA(class_="form-control")}}</td>
+                </tr>
+                <tr>
+                  <td class="col-sm-3">Geschicklichkeit ({{form.GE.label}})</td>
+                  <td class="col-sm-2">{{form.GE(class_="form-control")}}</td>
+                  <td></td>
+                  <td class="col-sm-3">Initiative ({{form.INI.label}})</td>
+                  <td class="col-sm-2">{{form.INI(class_="form-control")}}</td>
+                </tr>
+                <tr>
+                  <td class="col-sm-3">Intelligenz ({{form.IN.label}})</td>
+                  <td class="col-sm-2">{{form.IN(class_="form-control")}}</td>
+                  <td></td>
+                  <td class="col-sm-3">Lebensenergie ({{form.LE.label}})</td>
+                  <td class="col-sm-2">{{form.LE(class_="form-control")}}</td>
+                </tr>
+                <tr>
+                  <td class="col-sm-3">CHarme ({{form.CH.label}})</td>
+                  <td class="col-sm-2">{{form.CH(class_="form-control")}}</td>
+                  <td></td>
+                  <td class="col-sm-3">Geistige Gesundheit ({{form.GG.label}})</td>
+                  <td class="col-sm-2">{{form.GG(class_="form-control")}}</td>
+                </tr>
+                <tr>
+                  <td class="col-sm-3">Mentale Belastbarkeit ({{form.MB.label}})</td>
+                  <td class="col-sm-2">{{form.MB(class_="form-control")}}</td>
+                  <td></td>
+    <td>  <button type="submit" class="btn btn-primary">{{_('Continue')}}</button></td>
+                </tr>
+              </table>
 
-        </div>
-</div>
-</form>
+            </div>
+    </div>
+
+          </div>
+          <!-- ----- BASICS -->
       </div>
     </div>
+  </div>
+  <div class="col">
+    <div class="collapse multi-collapse" id="multiCollapseExample2">
+      <div class="card card-body">
+        <!-- Wissen -->
+        <div class="row"><br>
+          <table class="table table-sm">
+
+            {% for item in all %}
+        <tr>
+          <td class="col-sm-3">item.name ({ {form.item.label} })</td>
+          <td> {{all.id}}</td>
+          <td class="col-sm-2">{ {form.item(class_="form-control")} }</td>
+        </tr>
+        {% endfor %}
+        <td>  <button type="submit" class="btn btn-primary">{{_('Continue')}}</button></td>
+      </table>
+      </div>
+        <!-- Wissen -->
+      </div>
+    </div>
+  </div>
+</div>
+###
+
+    </div>
+    </form>
     <div class="col-sm-2"></div>
   </section>
   <!--/ News End /-->
+  {% endblock %}
+{% block scirpts %}
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script>window.jQuery || document.write('<script src="/docs/4.0/assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
 
+<script src="/docs/4.0/assets/js/vendor/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script><script src="/docs/4.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script><script src="/docs/4.0/assets/js/docs.min.js"></script>
 
   {% endblock %}

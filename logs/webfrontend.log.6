@@ -1,4 +1,4 @@
-2019-10-17 13:56:24,736 ERROR: Exception on /creator/create [GET] [in /Library/Python/3.7/site-packages/flask/app.py:1891]
+2019-10-17 14:00:42,187 ERROR: Exception on /creator/create [GET] [in /Library/Python/3.7/site-packages/flask/app.py:1891]
 Traceback (most recent call last):
   File "/Library/Python/3.7/site-packages/flask/app.py", line 2446, in wsgi_app
     response = self.full_dispatch_request()
@@ -12,8 +12,8 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "/Library/Python/3.7/site-packages/flask/app.py", line 1935, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "/Users/haikodidzoleit/CODING/HTBAH_creator/app/creator/routes.py", line 29, in creator_create
-    return render_template('creator/creator.html', title=_('Sign In'))
+  File "/Users/haikodidzoleit/CODING/HTBAH_creator/app/creator/routes.py", line 30, in creator_create
+    return render_template('creator/creator.html', title=_('Sign In'), form=form)
   File "/Library/Python/3.7/site-packages/flask/templating.py", line 140, in render_template
     ctx.app,
   File "/Library/Python/3.7/site-packages/flask/templating.py", line 120, in _render
@@ -41,31 +41,13 @@ Traceback (most recent call last):
   File "/Library/Python/3.7/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 39, in block_html
   File "/Library/Python/3.7/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 92, in block_body
   File "/Users/haikodidzoleit/CODING/HTBAH_creator/app/templates/base.html", line 121, in block_content
-  File "/Users/haikodidzoleit/CODING/HTBAH_creator/app/templates/creator/creator.html", line 26, in block_app_content
+  File "/Users/haikodidzoleit/CODING/HTBAH_creator/app/templates/creator/creator.html", line 27, in block_app_content
     <div class="container">
   File "/Library/Python/3.7/site-packages/jinja2/environment.py", line 430, in getattr
     return getattr(obj, attribute)
-jinja2.exceptions.UndefinedError: 'form' is undefined
-2019-10-17 13:58:26,785 INFO: Microblog startup [in /Users/haikodidzoleit/CODING/HTBAH_creator/app/__init__.py:84]
-2019-10-17 13:58:33,270 ERROR: Exception on /creator/create [GET] [in /Library/Python/3.7/site-packages/flask/app.py:1891]
-Traceback (most recent call last):
-  File "/Library/Python/3.7/site-packages/flask/app.py", line 2446, in wsgi_app
-    response = self.full_dispatch_request()
-  File "/Library/Python/3.7/site-packages/flask/app.py", line 1951, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "/Library/Python/3.7/site-packages/flask/app.py", line 1820, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "/Library/Python/3.7/site-packages/flask/_compat.py", line 39, in reraise
-    raise value
-  File "/Library/Python/3.7/site-packages/flask/app.py", line 1949, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "/Library/Python/3.7/site-packages/flask/app.py", line 1935, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "/Users/haikodidzoleit/CODING/HTBAH_creator/app/creator/routes.py", line 29, in creator_create
-    form = creator()
-NameError: name 'creator' is not defined
-2019-10-17 13:58:49,864 INFO: Microblog startup [in /Users/haikodidzoleit/CODING/HTBAH_creator/app/__init__.py:84]
-2019-10-17 13:58:53,100 ERROR: Exception on /creator/create [GET] [in /Library/Python/3.7/site-packages/flask/app.py:1891]
+jinja2.exceptions.UndefinedError: 'app.creator.forms.Creator object' has no attribute 'permissionname'
+2019-10-17 14:01:44,652 INFO: Microblog startup [in /Users/haikodidzoleit/CODING/HTBAH_creator/app/__init__.py:84]
+2019-10-17 14:01:48,842 ERROR: Exception on /creator/create [GET] [in /Library/Python/3.7/site-packages/flask/app.py:1891]
 Traceback (most recent call last):
   File "/Library/Python/3.7/site-packages/flask/app.py", line 2446, in wsgi_app
     response = self.full_dispatch_request()
@@ -80,42 +62,38 @@ Traceback (most recent call last):
   File "/Library/Python/3.7/site-packages/flask/app.py", line 1935, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
   File "/Users/haikodidzoleit/CODING/HTBAH_creator/app/creator/routes.py", line 30, in creator_create
-    return render_template('creator/creator.html', title=_('Sign In'), form=form())
-TypeError: 'Creator' object is not callable
-2019-10-17 13:59:53,985 INFO: Microblog startup [in /Users/haikodidzoleit/CODING/HTBAH_creator/app/__init__.py:84]
-2019-10-17 13:59:57,221 ERROR: Exception on /creator/create [GET] [in /Library/Python/3.7/site-packages/flask/app.py:1891]
-Traceback (most recent call last):
-  File "/Library/Python/3.7/site-packages/flask/app.py", line 2446, in wsgi_app
-    response = self.full_dispatch_request()
-  File "/Library/Python/3.7/site-packages/flask/app.py", line 1951, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "/Library/Python/3.7/site-packages/flask/app.py", line 1820, in handle_user_exception
+    return render_template('creator/creator.html', title=_('Sign In'), form=form)
+  File "/Library/Python/3.7/site-packages/flask/templating.py", line 140, in render_template
+    ctx.app,
+  File "/Library/Python/3.7/site-packages/flask/templating.py", line 120, in _render
+    rv = template.render(context)
+  File "/Library/Python/3.7/site-packages/jinja2/asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "/Library/Python/3.7/site-packages/jinja2/environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "/Library/Python/3.7/site-packages/jinja2/environment.py", line 780, in handle_exception
     reraise(exc_type, exc_value, tb)
-  File "/Library/Python/3.7/site-packages/flask/_compat.py", line 39, in reraise
-    raise value
-  File "/Library/Python/3.7/site-packages/flask/app.py", line 1949, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "/Library/Python/3.7/site-packages/flask/app.py", line 1935, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "/Users/haikodidzoleit/CODING/HTBAH_creator/app/creator/routes.py", line 30, in creator_create
-    return render_template('creator/creator.html', title=_('Sign In'), form=form())
-TypeError: 'Creator' object is not callable
-2019-10-17 14:00:11,749 INFO: Microblog startup [in /Users/haikodidzoleit/CODING/HTBAH_creator/app/__init__.py:84]
-2019-10-17 14:00:14,706 ERROR: Exception on /creator/create [GET] [in /Library/Python/3.7/site-packages/flask/app.py:1891]
-Traceback (most recent call last):
-  File "/Library/Python/3.7/site-packages/flask/app.py", line 2446, in wsgi_app
-    response = self.full_dispatch_request()
-  File "/Library/Python/3.7/site-packages/flask/app.py", line 1951, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "/Library/Python/3.7/site-packages/flask/app.py", line 1820, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "/Library/Python/3.7/site-packages/flask/_compat.py", line 39, in reraise
-    raise value
-  File "/Library/Python/3.7/site-packages/flask/app.py", line 1949, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "/Library/Python/3.7/site-packages/flask/app.py", line 1935, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "/Users/haikodidzoleit/CODING/HTBAH_creator/app/creator/routes.py", line 30, in creator_create
-    return render_template('creator/creator.html', title=_('Sign In'), form=form())
-TypeError: 'Creator' object is not callable
-2019-10-17 14:00:39,351 INFO: Microblog startup [in /Users/haikodidzoleit/CODING/HTBAH_creator/app/__init__.py:84]
+  File "/Library/Python/3.7/site-packages/jinja2/_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "/Users/haikodidzoleit/CODING/HTBAH_creator/app/templates/creator/creator.html", line 2, in top-level template code
+    {% import 'bootstrap/wtf.html' as wtf %}
+  File "/Library/Python/3.7/site-packages/jinja2/environment.py", line 1005, in render
+    return concat(self.root_render_func(self.new_context(vars)))
+  File "/Users/haikodidzoleit/CODING/HTBAH_creator/app/templates/creator/creator.html", line 17, in root
+    </div>
+  File "/Users/haikodidzoleit/CODING/HTBAH_creator/app/templates/base.html", line 14, in root
+    <link rel="stylesheet" href="{{ url_for('static', filename='library/bootstrap/css/bootstrap.min.css')}}">
+  File "/Library/Python/3.7/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 10, in root
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  File "/Library/Python/3.7/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 20, in block_doc
+    {% block body -%}
+  File "/Library/Python/3.7/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 39, in block_html
+  File "/Library/Python/3.7/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 92, in block_body
+  File "/Users/haikodidzoleit/CODING/HTBAH_creator/app/templates/base.html", line 121, in block_content
+  File "/Users/haikodidzoleit/CODING/HTBAH_creator/app/templates/creator/creator.html", line 27, in block_app_content
+    <div class="container">
+  File "/Library/Python/3.7/site-packages/jinja2/environment.py", line 430, in getattr
+    return getattr(obj, attribute)
+jinja2.exceptions.UndefinedError: 'app.creator.forms.Form_Creator object' has no attribute 'permissionname'
+2019-10-17 14:03:05,390 INFO: Microblog startup [in /Users/haikodidzoleit/CODING/HTBAH_creator/app/__init__.py:84]
+2019-10-17 14:22:49,857 INFO: Microblog startup [in /Users/haikodidzoleit/CODING/HTBAH_creator/app/__init__.py:84]

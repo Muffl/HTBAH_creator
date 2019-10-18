@@ -27,4 +27,11 @@ def creator_download():
 @bp.route('/create', methods=['GET', 'POST'])
 def creator_create():
     form = Form_Creator()
-    return render_template('creator/creator.html', title=_('Sign In'), form=form)
+    all = db.session.query(Abilities).all()
+    #knowledge = db.session.query(Abilities).filter_by(Abilities.category == 'Knowledge').all()
+    #social = db.session.query(Abilities).filter_by(Abilities.category == 'Social').all()
+    #sport = db.session.query(Abilities).filter_by(Abilities.category == 'Sport').all()
+    #action = db.session.query(Abilities).filter_by(Abilities.category == 'Action').all()
+    #crafting = db.session.query(Abilities).filter_by(Abilities.category == 'Crafting').all()
+    #fight = db.session.query(Abilities).filter_by(Abilities.category == 'Fighting').all()
+    return render_template('creator/creator.html', title=_('Sign In'), form=form, all=all)
