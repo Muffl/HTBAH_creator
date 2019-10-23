@@ -8,7 +8,7 @@ from guess_language import guess_language
 from app import db
 from app.models import *
 from app.main import bp
-
+from app.main.init import init_system
 
 from flask import request, redirect
 import os, hashlib

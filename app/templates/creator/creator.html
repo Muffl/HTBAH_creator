@@ -171,12 +171,15 @@
         <div class="row"><br>
           <table class="table table-sm">
 
-            {% for item in all %}
+            {% for item in all_self %}
+            {{ item.category }}
+            {% if item.category == "Wissen" %}
         <tr>
-          <td class="col-sm-3">item.name ({ {form.item.label} })</td>
+          <td class="col-sm-3">{{item.id}}{{item.Name}} ({ {form.item.label} })</td>
           <td> {{all.id}}</td>
           <td class="col-sm-2">{ {form.item(class_="form-control")} }</td>
         </tr>
+        {% endif %}
         {% endfor %}
         <td>  <button type="submit" class="btn btn-primary">{{_('Continue')}}</button></td>
       </table>
