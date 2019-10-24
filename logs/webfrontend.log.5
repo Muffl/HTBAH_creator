@@ -1,13 +1,4 @@
-2019-10-23 23:15:43,455 ERROR: Exception on /init_system [GET] [in /home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/flask/app.py:1891]
-Traceback (most recent call last):
-  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1249, in _execute_context
-    cursor, statement, parameters, context
-  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 580, in do_execute
-    cursor.execute(statement, parameters)
-sqlite3.IntegrityError: UNIQUE constraint failed: Abilities_cat.name
-
-The above exception was the direct cause of the following exception:
-
+2019-10-24 11:47:19,735 ERROR: Exception on /creator/create [GET] [in /home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/flask/app.py:1891]
 Traceback (most recent call last):
   File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/flask/app.py", line 2446, in wsgi_app
     response = self.full_dispatch_request()
@@ -21,58 +12,35 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/flask/app.py", line 1935, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "/home/orillion/CODING/HTBAH_Character_Creator/app/main/init.py", line 21, in init_system
-    db.session.commit()
-  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/sqlalchemy/orm/scoping.py", line 162, in do
-    return getattr(self.registry(), name)(*args, **kwargs)
-  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 1027, in commit
-    self.transaction.commit()
-  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 494, in commit
-    self._prepare_impl()
-  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 473, in _prepare_impl
-    self.session.flush()
-  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 2470, in flush
-    self._flush(objects)
-  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 2608, in _flush
-    transaction.rollback(_capture_exception=True)
-  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/sqlalchemy/util/langhelpers.py", line 68, in __exit__
-    compat.reraise(exc_type, exc_value, exc_tb)
-  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 153, in reraise
-    raise value
-  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 2568, in _flush
-    flush_context.execute()
-  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/sqlalchemy/orm/unitofwork.py", line 422, in execute
-    rec.execute(self)
-  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/sqlalchemy/orm/unitofwork.py", line 589, in execute
-    uow,
-  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/sqlalchemy/orm/persistence.py", line 245, in save_obj
-    insert,
-  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/sqlalchemy/orm/persistence.py", line 1137, in _emit_insert_statements
-    statement, params
-  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 988, in execute
-    return meth(self, multiparams, params)
-  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/sqlalchemy/sql/elements.py", line 287, in _execute_on_connection
-    return connection._execute_clauseelement(self, multiparams, params)
-  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1107, in _execute_clauseelement
-    distilled_params,
-  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1253, in _execute_context
-    e, statement, parameters, cursor, context
-  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1473, in _handle_dbapi_exception
-    util.raise_from_cause(sqlalchemy_exception, exc_info)
-  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 398, in raise_from_cause
-    reraise(type(exception), exception, tb=exc_tb, cause=cause)
-  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 152, in reraise
-    raise value.with_traceback(tb)
-  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1249, in _execute_context
-    cursor, statement, parameters, context
-  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 580, in do_execute
-    cursor.execute(statement, parameters)
-sqlalchemy.exc.IntegrityError: (sqlite3.IntegrityError) UNIQUE constraint failed: Abilities_cat.name
-[SQL: INSERT INTO "Abilities_cat" (name) VALUES (?)]
-[parameters: ('Wissen',)]
-(Background on this error at: http://sqlalche.me/e/gkpj)
-2019-10-23 23:17:53,543 INFO: Microblog startup [in /home/orillion/CODING/HTBAH_Character_Creator/app/__init__.py:84]
-2019-10-23 23:17:54,799 ERROR: Exception on /init_system [GET] [in /home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/flask/app.py:1891]
+  File "/home/orillion/CODING/HTBAH_Character_Creator/app/creator/routes.py", line 30, in creator_create
+    all = db.session.query(Abilities_templates, Abilities_cat).outerjoin(Abilities_cat).outerjoin(stats_templates).filter(Abilities_templates.category==Abilities_cat.id).all()
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/sqlalchemy/orm/query.py", line 2267, in outerjoin
+    from_joinpoint=from_joinpoint,
+  File "<string>", line 2, in _join
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/sqlalchemy/orm/base.py", line 220, in generate
+    fn(self, *args[1:], **kw)
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/sqlalchemy/orm/query.py", line 2422, in _join
+    left, right, onclause, prop, create_aliases, outerjoin, full
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/sqlalchemy/orm/query.py", line 2485, in _join_left_to_right
+    + self._from_obj[replace_from_obj_index + 1 :]
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/sqlalchemy/orm/util.py", line 1136, in join
+    return _ORMJoin(left, right, onclause, isouter, full)
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/sqlalchemy/orm/util.py", line 1035, in __init__
+    expression.Join.__init__(self, left, right, onclause, isouter, full)
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/sqlalchemy/sql/selectable.py", line 739, in __init__
+    self.onclause = self._match_primaries(self.left, self.right)
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/sqlalchemy/sql/selectable.py", line 882, in _match_primaries
+    return self._join_condition(left, right, a_subset=left_right)
+  File "<string>", line 2, in _join_condition
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/sqlalchemy/util/deprecations.py", line 128, in warned
+    return fn(*args, **kwargs)
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/sqlalchemy/sql/selectable.py", line 933, in _join_condition
+    a, b, constraints, consider_as_foreign_keys
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/sqlalchemy/sql/selectable.py", line 1050, in _joincond_trim_constraints
+    "join explicitly." % (a.description, b.description)
+sqlalchemy.exc.AmbiguousForeignKeysError: Can't determine join between 'Join object on Abilities_templates(140299153855248) and Abilities_cat(140299154307088)' and 'stats_templates'; tables have more than one foreign key constraint relationship between them. Please specify the 'onclause' of this join explicitly.
+2019-10-24 11:47:33,375 INFO: Microblog startup [in /home/orillion/CODING/HTBAH_Character_Creator/app/__init__.py:84]
+2019-10-24 11:47:33,984 ERROR: Exception on /creator/create [GET] [in /home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/flask/app.py:1891]
 Traceback (most recent call last):
   File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/flask/app.py", line 2446, in wsgi_app
     response = self.full_dispatch_request()
@@ -86,33 +54,33 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/flask/app.py", line 1935, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "/home/orillion/CODING/HTBAH_Character_Creator/app/main/init.py", line 11, in init_system
-    if db.session.query(Abilities_cat).filter(name=item).count() == 0:
-TypeError: filter() got an unexpected keyword argument 'name'
-2019-10-23 23:18:35,582 INFO: Microblog startup [in /home/orillion/CODING/HTBAH_Character_Creator/app/__init__.py:84]
-2019-10-23 23:18:36,760 ERROR: Exception on /init_system [GET] [in /home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/flask/app.py:1891]
-Traceback (most recent call last):
-  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/flask/app.py", line 2446, in wsgi_app
-    response = self.full_dispatch_request()
-  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/flask/app.py", line 1951, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/flask/app.py", line 1820, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
-    raise value
-  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/flask/app.py", line 1949, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/flask/app.py", line 1935, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "/home/orillion/CODING/HTBAH_Character_Creator/app/main/init.py", line 24, in init_system
-    return redirect(url_for('creator.creator_index'))
-NameError: name 'url_for' is not defined
-2019-10-23 23:18:46,951 INFO: Microblog startup [in /home/orillion/CODING/HTBAH_Character_Creator/app/__init__.py:84]
-2019-10-23 23:23:47,234 INFO: Microblog startup [in /home/orillion/CODING/HTBAH_Character_Creator/app/__init__.py:84]
-2019-10-23 23:24:04,385 INFO: Microblog startup [in /home/orillion/CODING/HTBAH_Character_Creator/app/__init__.py:84]
-2019-10-23 23:24:30,507 INFO: Microblog startup [in /home/orillion/CODING/HTBAH_Character_Creator/app/__init__.py:84]
-2019-10-23 23:27:04,493 INFO: Microblog startup [in /home/orillion/CODING/HTBAH_Character_Creator/app/__init__.py:84]
-2019-10-23 23:27:05,232 INFO: Microblog startup [in /home/orillion/CODING/HTBAH_Character_Creator/app/__init__.py:84]
-2019-10-23 23:27:06,022 INFO: Microblog startup [in /home/orillion/CODING/HTBAH_Character_Creator/app/__init__.py:84]
-2019-10-23 23:29:43,397 INFO: Microblog startup [in /home/orillion/CODING/HTBAH_Character_Creator/app/__init__.py:84]
-2019-10-23 23:29:44,015 INFO: Microblog startup [in /home/orillion/CODING/HTBAH_Character_Creator/app/__init__.py:84]
+  File "/home/orillion/CODING/HTBAH_Character_Creator/app/creator/routes.py", line 30, in creator_create
+    all = db.session.query(Abilities_templates, Abilities_cat).outerjoin(Abilities_cat).outerjoin(stats_templates).filter(Abilities_templates.category==Abilities_cat.id).all()
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/sqlalchemy/orm/query.py", line 2267, in outerjoin
+    from_joinpoint=from_joinpoint,
+  File "<string>", line 2, in _join
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/sqlalchemy/orm/base.py", line 220, in generate
+    fn(self, *args[1:], **kw)
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/sqlalchemy/orm/query.py", line 2422, in _join
+    left, right, onclause, prop, create_aliases, outerjoin, full
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/sqlalchemy/orm/query.py", line 2485, in _join_left_to_right
+    + self._from_obj[replace_from_obj_index + 1 :]
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/sqlalchemy/orm/util.py", line 1136, in join
+    return _ORMJoin(left, right, onclause, isouter, full)
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/sqlalchemy/orm/util.py", line 1035, in __init__
+    expression.Join.__init__(self, left, right, onclause, isouter, full)
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/sqlalchemy/sql/selectable.py", line 739, in __init__
+    self.onclause = self._match_primaries(self.left, self.right)
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/sqlalchemy/sql/selectable.py", line 882, in _match_primaries
+    return self._join_condition(left, right, a_subset=left_right)
+  File "<string>", line 2, in _join_condition
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/sqlalchemy/util/deprecations.py", line 128, in warned
+    return fn(*args, **kwargs)
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/sqlalchemy/sql/selectable.py", line 933, in _join_condition
+    a, b, constraints, consider_as_foreign_keys
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/sqlalchemy/sql/selectable.py", line 1050, in _joincond_trim_constraints
+    "join explicitly." % (a.description, b.description)
+sqlalchemy.exc.AmbiguousForeignKeysError: Can't determine join between 'Join object on Abilities_templates(140187212117584) and Abilities_cat(140187212548944)' and 'stats_templates'; tables have more than one foreign key constraint relationship between them. Please specify the 'onclause' of this join explicitly.
+2019-10-24 11:48:01,237 INFO: Microblog startup [in /home/orillion/CODING/HTBAH_Character_Creator/app/__init__.py:84]
+2019-10-24 11:48:31,910 INFO: Microblog startup [in /home/orillion/CODING/HTBAH_Character_Creator/app/__init__.py:84]
+2019-10-24 11:52:26,369 INFO: Microblog startup [in /home/orillion/CODING/HTBAH_Character_Creator/app/__init__.py:84]

@@ -1,13 +1,4 @@
-2019-10-23 23:38:51,674 INFO: Microblog startup [in /home/orillion/CODING/HTBAH_Character_Creator/app/__init__.py:84]
-2019-10-23 23:42:03,621 INFO: Microblog startup [in /home/orillion/CODING/HTBAH_Character_Creator/app/__init__.py:84]
-2019-10-23 23:42:04,240 INFO: Microblog startup [in /home/orillion/CODING/HTBAH_Character_Creator/app/__init__.py:84]
-2019-10-23 23:42:04,958 INFO: Microblog startup [in /home/orillion/CODING/HTBAH_Character_Creator/app/__init__.py:84]
-2019-10-23 23:42:10,271 INFO: Microblog startup [in /home/orillion/CODING/HTBAH_Character_Creator/app/__init__.py:84]
-2019-10-23 23:52:52,065 INFO: Microblog startup [in /home/orillion/CODING/HTBAH_Character_Creator/app/__init__.py:84]
-2019-10-23 23:52:52,691 INFO: Microblog startup [in /home/orillion/CODING/HTBAH_Character_Creator/app/__init__.py:84]
-2019-10-23 23:52:56,089 INFO: Microblog startup [in /home/orillion/CODING/HTBAH_Character_Creator/app/__init__.py:84]
-2019-10-23 23:53:26,786 INFO: Microblog startup [in /home/orillion/CODING/HTBAH_Character_Creator/app/__init__.py:84]
-2019-10-23 23:53:30,614 ERROR: Exception on /creator/create [GET] [in /home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/flask/app.py:1891]
+2019-10-24 11:52:48,622 ERROR: Exception on /creator/create [GET] [in /home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/flask/app.py:1891]
 Traceback (most recent call last):
   File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/flask/app.py", line 2446, in wsgi_app
     response = self.full_dispatch_request()
@@ -21,61 +12,46 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/flask/app.py", line 1935, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "/home/orillion/CODING/HTBAH_Character_Creator/app/creator/routes.py", line 31, in creator_create
-    all_self = db.session.query(Abilites_tempalte).all()
-NameError: name 'Abilites_tempalte' is not defined
-2019-10-23 23:53:52,922 INFO: Microblog startup [in /home/orillion/CODING/HTBAH_Character_Creator/app/__init__.py:84]
-2019-10-23 23:53:53,681 ERROR: Exception on /creator/create [GET] [in /home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/flask/app.py:1891]
-Traceback (most recent call last):
-  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/flask/app.py", line 2446, in wsgi_app
-    response = self.full_dispatch_request()
-  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/flask/app.py", line 1951, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/flask/app.py", line 1820, in handle_user_exception
+  File "/home/orillion/CODING/HTBAH_Character_Creator/app/creator/routes.py", line 33, in creator_create
+    return render_template('creator/creator.html', title=_('Sign In'), form=form, all=all, all_cat = all_cat)
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/flask/templating.py", line 140, in render_template
+    ctx.app,
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/flask/templating.py", line 120, in _render
+    rv = template.render(context)
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/jinja2/asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/jinja2/environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/jinja2/environment.py", line 780, in handle_exception
     reraise(exc_type, exc_value, tb)
-  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
-    raise value
-  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/flask/app.py", line 1949, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/flask/app.py", line 1935, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "/home/orillion/CODING/HTBAH_Character_Creator/app/creator/routes.py", line 32, in creator_create
-    data=all.union(all_self)
-AttributeError: 'list' object has no attribute 'union'
-2019-10-23 23:53:56,743 ERROR: Exception on /creator/create [GET] [in /home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/flask/app.py:1891]
-Traceback (most recent call last):
-  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/flask/app.py", line 2446, in wsgi_app
-    response = self.full_dispatch_request()
-  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/flask/app.py", line 1951, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/flask/app.py", line 1820, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
-    raise value
-  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/flask/app.py", line 1949, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/flask/app.py", line 1935, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "/home/orillion/CODING/HTBAH_Character_Creator/app/creator/routes.py", line 32, in creator_create
-    data=all.union(all_self)
-AttributeError: 'list' object has no attribute 'union'
-2019-10-23 23:56:06,331 INFO: Microblog startup [in /home/orillion/CODING/HTBAH_Character_Creator/app/__init__.py:84]
-2019-10-23 23:58:23,959 INFO: Microblog startup [in /home/orillion/CODING/HTBAH_Character_Creator/app/__init__.py:84]
-2019-10-23 23:58:25,743 ERROR: Exception on /creator/create [GET] [in /home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/flask/app.py:1891]
-Traceback (most recent call last):
-  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/flask/app.py", line 2446, in wsgi_app
-    response = self.full_dispatch_request()
-  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/flask/app.py", line 1951, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/flask/app.py", line 1820, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
-    raise value
-  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/flask/app.py", line 1949, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/flask/app.py", line 1935, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "/home/orillion/CODING/HTBAH_Character_Creator/app/creator/routes.py", line 30, in creator_create
-    all = db.session.query(Abilities, Abilities_cat).join(Abilities_cat, Abilities_cat.id == Abilities.category).all()
-NameError: name 'Abilities_cat' is not defined
-2019-10-23 23:58:38,525 INFO: Microblog startup [in /home/orillion/CODING/HTBAH_Character_Creator/app/__init__.py:84]
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/jinja2/_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "/home/orillion/CODING/HTBAH_Character_Creator/app/templates/creator/creator.html", line 2, in top-level template code
+    {% import 'bootstrap/wtf.html' as wtf %}
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/jinja2/environment.py", line 1005, in render
+    return concat(self.root_render_func(self.new_context(vars)))
+  File "/home/orillion/CODING/HTBAH_Character_Creator/app/templates/creator/creator.html", line 17, in root
+    </div>
+  File "/home/orillion/CODING/HTBAH_Character_Creator/app/templates/base.html", line 14, in root
+    <link rel="stylesheet" href="{{ url_for('static', filename='library/bootstrap/css/bootstrap.min.css')}}">
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 10, in root
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 20, in block_doc
+    {% block body -%}
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 39, in block_html
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 92, in block_body
+  File "/home/orillion/CODING/HTBAH_Character_Creator/app/templates/base.html", line 121, in block_content
+  File "/home/orillion/CODING/HTBAH_Character_Creator/app/templates/creator/creator.html", line 104, in block_app_content
+    {{form.size.label}}
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/jinja2/runtime.py", line 262, in call
+    return __obj(*args, **kwargs)
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/wtforms/fields/core.py", line 155, in __call__
+    return self.meta.render_field(self, kwargs)
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/wtforms/meta.py", line 56, in render_field
+    return field.widget(field, **render_kw)
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/wtforms/widgets/core.py", line 323, in __call__
+    for val, label, selected in field.iter_choices():
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/wtforms/fields/core.py", line 454, in iter_choices
+    for value, label in self.choices:
+TypeError: 'NoneType' object is not iterable
+2019-10-24 11:54:45,687 INFO: Microblog startup [in /home/orillion/CODING/HTBAH_Character_Creator/app/__init__.py:84]

@@ -26,4 +26,10 @@ class Form_Creator(FlaskForm):
     LE = IntegerField(_l('LE'), validators=[DataRequired()],render_kw={"placeholder": "Lebensenergie"})
     GG = IntegerField(_l('GG'), validators=[DataRequired()],render_kw={"placeholder": "Geistige Gesundheit"})
 
+    itemselect = SelectField(_l('item'), choices=[('other','0')])
+    probeselect1 = SelectField(_l('item'), choices=[('other','0')])
+    probeselect2 = SelectField(_l('item'), choices=[('other','0')])
+    probeselect3 = SelectField(_l('item'), choices=[('other','0')])
+    value = IntegerField(_l('age'))
+
     submit = SubmitField(_l('Sign In'))

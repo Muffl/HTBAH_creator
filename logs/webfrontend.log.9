@@ -1,17 +1,5 @@
-2019-10-23 23:08:24,066 ERROR: Exception on /init_system [GET] [in /home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/flask/app.py:1891]
-Traceback (most recent call last):
-  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/sqlalchemy/orm/relationships.py", line 2361, in _determine_joins
-    consider_as_foreign_keys=consider_as_foreign_keys,
-  File "<string>", line 2, in join_condition
-  File "<string>", line 2, in _join_condition
-  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/sqlalchemy/util/deprecations.py", line 128, in warned
-    return fn(*args, **kwargs)
-  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/sqlalchemy/sql/selectable.py", line 947, in _join_condition
-    % (a.description, b.description, hint)
-sqlalchemy.exc.NoForeignKeysError: Can't find any foreign key relationships between 'Abilities' and 'Abilites_cat'.
-
-During handling of the above exception, another exception occurred:
-
+2019-10-24 11:36:32,729 INFO: Microblog startup [in /home/orillion/CODING/HTBAH_Character_Creator/app/__init__.py:84]
+2019-10-24 11:36:33,724 ERROR: Exception on /creator/create [GET] [in /home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/flask/app.py:1891]
 Traceback (most recent call last):
   File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/flask/app.py", line 2446, in wsgi_app
     response = self.full_dispatch_request()
@@ -25,32 +13,43 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/flask/app.py", line 1935, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "/home/orillion/CODING/HTBAH_Character_Creator/app/main/init.py", line 8, in init_system
-    new_ac=Abilities_cat(category="Wissen")
-  File "<string>", line 2, in __init__
-  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/sqlalchemy/orm/instrumentation.py", line 376, in _new_state_if_none
-    state = self._state_constructor(instance, self)
-  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/sqlalchemy/util/langhelpers.py", line 855, in __get__
-    obj.__dict__[self.__name__] = result = self.fget(obj)
-  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/sqlalchemy/orm/instrumentation.py", line 202, in _state_constructor
-    self.dispatch.first_init(self, self.class_)
-  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/sqlalchemy/event/attr.py", line 322, in __call__
-    fn(*args, **kw)
-  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/sqlalchemy/orm/mapper.py", line 3360, in _event_on_first_init
-    configure_mappers()
-  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/sqlalchemy/orm/mapper.py", line 3248, in configure_mappers
-    mapper._post_configure_properties()
-  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/sqlalchemy/orm/mapper.py", line 1947, in _post_configure_properties
-    prop.init()
-  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/sqlalchemy/orm/interfaces.py", line 196, in init
-    self.do_init()
-  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/sqlalchemy/orm/relationships.py", line 1861, in do_init
-    self._setup_join_conditions()
-  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/sqlalchemy/orm/relationships.py", line 1941, in _setup_join_conditions
-    can_be_synced_fn=self._columns_are_mapped,
-  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/sqlalchemy/orm/relationships.py", line 2246, in __init__
-    self._determine_joins()
-  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/sqlalchemy/orm/relationships.py", line 2383, in _determine_joins
-    "specify a 'primaryjoin' expression." % self.prop
-sqlalchemy.exc.NoForeignKeysError: Could not determine join condition between parent/child tables on relationship Abilities.category - there are no foreign keys linking these tables.  Ensure that referencing columns are associated with a ForeignKey or ForeignKeyConstraint, or specify a 'primaryjoin' expression.
-2019-10-23 23:09:03,815 INFO: Microblog startup [in /home/orillion/CODING/HTBAH_Character_Creator/app/__init__.py:84]
+  File "/home/orillion/CODING/HTBAH_Character_Creator/app/creator/routes.py", line 33, in creator_create
+    return render_template('creator/creator.html', title=_('Sign In'), form=form, all=all, all_cat = all_cat)
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/flask/templating.py", line 140, in render_template
+    ctx.app,
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/flask/templating.py", line 120, in _render
+    rv = template.render(context)
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/jinja2/asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/jinja2/environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/jinja2/environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/jinja2/_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "/home/orillion/CODING/HTBAH_Character_Creator/app/templates/creator/creator.html", line 2, in top-level template code
+    {% import 'bootstrap/wtf.html' as wtf %}
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/jinja2/environment.py", line 1005, in render
+    return concat(self.root_render_func(self.new_context(vars)))
+  File "/home/orillion/CODING/HTBAH_Character_Creator/app/templates/creator/creator.html", line 17, in root
+    </div>
+  File "/home/orillion/CODING/HTBAH_Character_Creator/app/templates/base.html", line 14, in root
+    <link rel="stylesheet" href="{{ url_for('static', filename='library/bootstrap/css/bootstrap.min.css')}}">
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 10, in root
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 20, in block_doc
+    {% block body -%}
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 39, in block_html
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 92, in block_body
+  File "/home/orillion/CODING/HTBAH_Character_Creator/app/templates/base.html", line 121, in block_content
+  File "/home/orillion/CODING/HTBAH_Character_Creator/app/templates/creator/creator.html", line 105, in block_app_content
+    </td>
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/jinja2/runtime.py", line 262, in call
+    return __obj(*args, **kwargs)
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/jinja2/runtime.py", line 630, in _fail_with_undefined_error
+    raise self._undefined_exception(hint)
+jinja2.exceptions.UndefinedError: 'app.creator.forms.Form_Creator object' has no attribute 'probeselect2'
+2019-10-24 11:36:48,159 INFO: Microblog startup [in /home/orillion/CODING/HTBAH_Character_Creator/app/__init__.py:84]
+2019-10-24 11:37:42,473 INFO: Microblog startup [in /home/orillion/CODING/HTBAH_Character_Creator/app/__init__.py:84]
+2019-10-24 11:38:14,531 INFO: Microblog startup [in /home/orillion/CODING/HTBAH_Character_Creator/app/__init__.py:84]
+2019-10-24 11:40:19,341 INFO: Microblog startup [in /home/orillion/CODING/HTBAH_Character_Creator/app/__init__.py:84]

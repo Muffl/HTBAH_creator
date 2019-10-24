@@ -1,13 +1,4 @@
-2019-10-23 23:09:04,857 ERROR: Exception on /init_system [GET] [in /home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/flask/app.py:1891]
-Traceback (most recent call last):
-  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1249, in _execute_context
-    cursor, statement, parameters, context
-  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 580, in do_execute
-    cursor.execute(statement, parameters)
-sqlite3.OperationalError: table Abilites_cat has no column named category
-
-The above exception was the direct cause of the following exception:
-
+2019-10-24 11:40:20,298 ERROR: Exception on /creator/create [GET] [in /home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/flask/app.py:1891]
 Traceback (most recent call last):
   File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/flask/app.py", line 2446, in wsgi_app
     response = self.full_dispatch_request()
@@ -21,59 +12,71 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/flask/app.py", line 1935, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "/home/orillion/CODING/HTBAH_Character_Creator/app/main/init.py", line 20, in init_system
-    db.session.commit()
-  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/sqlalchemy/orm/scoping.py", line 162, in do
-    return getattr(self.registry(), name)(*args, **kwargs)
-  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 1027, in commit
-    self.transaction.commit()
-  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 494, in commit
-    self._prepare_impl()
-  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 473, in _prepare_impl
-    self.session.flush()
-  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 2470, in flush
-    self._flush(objects)
-  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 2608, in _flush
-    transaction.rollback(_capture_exception=True)
-  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/sqlalchemy/util/langhelpers.py", line 68, in __exit__
-    compat.reraise(exc_type, exc_value, exc_tb)
-  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 153, in reraise
-    raise value
-  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 2568, in _flush
-    flush_context.execute()
-  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/sqlalchemy/orm/unitofwork.py", line 422, in execute
-    rec.execute(self)
-  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/sqlalchemy/orm/unitofwork.py", line 589, in execute
-    uow,
-  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/sqlalchemy/orm/persistence.py", line 245, in save_obj
-    insert,
-  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/sqlalchemy/orm/persistence.py", line 1137, in _emit_insert_statements
-    statement, params
-  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 988, in execute
-    return meth(self, multiparams, params)
-  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/sqlalchemy/sql/elements.py", line 287, in _execute_on_connection
-    return connection._execute_clauseelement(self, multiparams, params)
-  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1107, in _execute_clauseelement
-    distilled_params,
-  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1253, in _execute_context
-    e, statement, parameters, cursor, context
-  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1473, in _handle_dbapi_exception
-    util.raise_from_cause(sqlalchemy_exception, exc_info)
-  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 398, in raise_from_cause
-    reraise(type(exception), exception, tb=exc_tb, cause=cause)
-  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 152, in reraise
+  File "/home/orillion/CODING/HTBAH_Character_Creator/app/creator/routes.py", line 33, in creator_create
+    return render_template('creator/creator.html', title=_('Sign In'), form=form, all=all, all_cat = all_cat)
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/flask/templating.py", line 138, in render_template
+    ctx.app.jinja_env.get_or_select_template(template_name_or_list),
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/jinja2/environment.py", line 869, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/jinja2/environment.py", line 830, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/jinja2/environment.py", line 804, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/jinja2/loaders.py", line 125, in load
+    code = environment.compile(source, name, filename)
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/jinja2/environment.py", line 591, in compile
+    self.handle_exception(exc_info, source_hint=source_hint)
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/jinja2/environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/jinja2/_compat.py", line 37, in reraise
     raise value.with_traceback(tb)
-  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1249, in _execute_context
-    cursor, statement, parameters, context
-  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 580, in do_execute
-    cursor.execute(statement, parameters)
-sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) table Abilites_cat has no column named category
-[SQL: INSERT INTO "Abilites_cat" (category) VALUES (?)]
-[parameters: ('Wissen',)]
-(Background on this error at: http://sqlalche.me/e/e3q8)
-2019-10-23 23:09:21,379 INFO: Microblog startup [in /home/orillion/CODING/HTBAH_Character_Creator/app/__init__.py:84]
-2019-10-23 23:09:21,976 INFO: Microblog startup [in /home/orillion/CODING/HTBAH_Character_Creator/app/__init__.py:84]
-2019-10-23 23:09:26,445 INFO: Microblog startup [in /home/orillion/CODING/HTBAH_Character_Creator/app/__init__.py:84]
-2019-10-23 23:09:27,140 INFO: Microblog startup [in /home/orillion/CODING/HTBAH_Character_Creator/app/__init__.py:84]
-2019-10-23 23:09:27,920 INFO: Microblog startup [in /home/orillion/CODING/HTBAH_Character_Creator/app/__init__.py:84]
-2019-10-23 23:09:33,012 INFO: Microblog startup [in /home/orillion/CODING/HTBAH_Character_Creator/app/__init__.py:84]
+  File "/home/orillion/CODING/HTBAH_Character_Creator/app/templates/creator/creator.html", line 178, in template
+    {% form.probeselect1.choices = item.Abilities_templates.test01}
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/jinja2/environment.py", line 497, in _parse
+    return Parser(self, source, name, encode_filename(filename)).parse()
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/jinja2/parser.py", line 901, in parse
+    result = nodes.Template(self.subparse(), lineno=1)
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/jinja2/parser.py", line 883, in subparse
+    rv = self.parse_statement()
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/jinja2/parser.py", line 130, in parse_statement
+    return getattr(self, 'parse_' + self.stream.current.value)()
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/jinja2/parser.py", line 268, in parse_block
+    node.body = self.parse_statements(('name:endblock',), drop_needle=True)
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/jinja2/parser.py", line 165, in parse_statements
+    result = self.subparse(end_tokens)
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/jinja2/parser.py", line 883, in subparse
+    rv = self.parse_statement()
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/jinja2/parser.py", line 130, in parse_statement
+    return getattr(self, 'parse_' + self.stream.current.value)()
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/jinja2/parser.py", line 199, in parse_for
+    body = self.parse_statements(('name:endfor', 'name:else'))
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/jinja2/parser.py", line 165, in parse_statements
+    result = self.subparse(end_tokens)
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/jinja2/parser.py", line 883, in subparse
+    rv = self.parse_statement()
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/jinja2/parser.py", line 130, in parse_statement
+    return getattr(self, 'parse_' + self.stream.current.value)()
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/jinja2/parser.py", line 199, in parse_for
+    body = self.parse_statements(('name:endfor', 'name:else'))
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/jinja2/parser.py", line 165, in parse_statements
+    result = self.subparse(end_tokens)
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/jinja2/parser.py", line 883, in subparse
+    rv = self.parse_statement()
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/jinja2/parser.py", line 130, in parse_statement
+    return getattr(self, 'parse_' + self.stream.current.value)()
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/jinja2/parser.py", line 212, in parse_if
+    node.body = self.parse_statements(('name:elif', 'name:else',
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/jinja2/parser.py", line 165, in parse_statements
+    result = self.subparse(end_tokens)
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/jinja2/parser.py", line 883, in subparse
+    rv = self.parse_statement()
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/jinja2/parser.py", line 144, in parse_statement
+    self.fail_unknown_tag(token.value, token.lineno)
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/jinja2/parser.py", line 97, in fail_unknown_tag
+    return self._fail_ut_eof(name, self._end_token_stack, lineno)
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/jinja2/parser.py", line 90, in _fail_ut_eof
+    self.fail(' '.join(message), lineno)
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/jinja2/parser.py", line 59, in fail
+    raise exc(msg, lineno, self.name, self.filename)
+jinja2.exceptions.TemplateSyntaxError: Encountered unknown tag 'form'. Jinja was looking for the following tags: 'elif' or 'else' or 'endif'. The innermost block that needs to be closed is 'if'.
+2019-10-24 11:40:46,181 INFO: Microblog startup [in /home/orillion/CODING/HTBAH_Character_Creator/app/__init__.py:84]

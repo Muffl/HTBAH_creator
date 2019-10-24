@@ -5,7 +5,7 @@ from flask_babel import _
 from app import db
 from app.creator import bp
 from app.creator.forms import Form_Creator
-from app.models import User, Charactersheet, Abilities, Abilities_templates, Abilities_cat
+from app.models import User, Charactersheet, Abilities, Abilities_templates, Abilities_cat,stats_templates
 
 
 @bp.route('/index', methods=['GET', 'POST'])
@@ -27,12 +27,7 @@ def creator_download():
 @bp.route('/create', methods=['GET', 'POST'])
 def creator_create():
     form = Form_Creator()
-    all = db.session.query(Abilities).join(Abilities_cat, Abilities_cat.id == Abilities.category).all()
-    all_self = db.session.query(Abilities_templates).all()
-    #knowledge = db.session.query(Abilities).filter_by(Abilities.category == 'Knowledge').all()
-    #social = db.session.query(Abilities).filter_by(Abilities.category == 'Social').all()
-    #sport = db.session.query(Abilities).filter_by(Abilities.category == 'Sport').all()
-    #action = db.session.query(Abilities).filter_by(Abilities.category == 'Action').all()
-    #crafting = db.session.query(Abilities).filter_by(Abilities.category == 'Crafting').all()
-    #fight = db.session.query(Abilities).filter_by(Abilities.category == 'Fighting').all()
-    return render_template('creator/creator.html', title=_('Sign In'), form=form, all=all, all_temp = all_self)
+    all = db.session.query(Abilities_templates, Abilities_cat).outerjoin(Abilities_cat).filter(Abilities_templates.category==Abilities_cat.id).all()
+    all_cat = db.session.query(Abilities_cat).all()
+
+    return render_template('creator/creator.html', title=_('Sign In'), form=form, all=all, all_cat = all_cat)

@@ -1,4 +1,4 @@
-2019-10-23 23:58:39,141 ERROR: Exception on /creator/create [GET] [in /home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/flask/app.py:1891]
+2019-10-24 11:54:46,828 ERROR: Exception on /creator/create [GET] [in /home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/flask/app.py:1891]
 Traceback (most recent call last):
   File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/flask/app.py", line 2446, in wsgi_app
     response = self.full_dispatch_request()
@@ -12,8 +12,8 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/flask/app.py", line 1935, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "/home/orillion/CODING/HTBAH_Character_Creator/app/creator/routes.py", line 38, in creator_create
-    return render_template('creator/creator.html', title=_('Sign In'), form=form, all=all, all_temp = all_self)
+  File "/home/orillion/CODING/HTBAH_Character_Creator/app/creator/routes.py", line 33, in creator_create
+    return render_template('creator/creator.html', title=_('Sign In'), form=form, all=all, all_cat = all_cat)
   File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/flask/templating.py", line 138, in render_template
     ctx.app.jinja_env.get_or_select_template(template_name_or_list),
   File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/jinja2/environment.py", line 869, in get_or_select_template
@@ -30,8 +30,8 @@ Traceback (most recent call last):
     reraise(exc_type, exc_value, tb)
   File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/jinja2/_compat.py", line 37, in reraise
     raise value.with_traceback(tb)
-  File "/home/orillion/CODING/HTBAH_Character_Creator/app/templates/creator/creator.html", line 175, in template
-    {% if item.category = }
+  File "/home/orillion/CODING/HTBAH_Character_Creator/app/templates/creator/creator.html", line 182, in template
+    <tr>{{ form.probeselect1.choices = =[('1','1')]}}
   File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/jinja2/environment.py", line 497, in _parse
     return Parser(self, source, name, encode_filename(filename)).parse()
   File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/jinja2/parser.py", line 901, in parse
@@ -56,11 +56,21 @@ Traceback (most recent call last):
     rv = self.parse_statement()
   File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/jinja2/parser.py", line 130, in parse_statement
     return getattr(self, 'parse_' + self.stream.current.value)()
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/jinja2/parser.py", line 199, in parse_for
+    body = self.parse_statements(('name:endfor', 'name:else'))
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/jinja2/parser.py", line 165, in parse_statements
+    result = self.subparse(end_tokens)
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/jinja2/parser.py", line 883, in subparse
+    rv = self.parse_statement()
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/jinja2/parser.py", line 130, in parse_statement
+    return getattr(self, 'parse_' + self.stream.current.value)()
   File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/jinja2/parser.py", line 212, in parse_if
     node.body = self.parse_statements(('name:elif', 'name:else',
-  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/jinja2/parser.py", line 164, in parse_statements
-    self.stream.expect('block_end')
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/jinja2/parser.py", line 165, in parse_statements
+    result = self.subparse(end_tokens)
+  File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/jinja2/parser.py", line 876, in subparse
+    self.stream.expect('variable_end')
   File "/home/orillion/CODING/HTBAH_Character_Creator/venv/lib/python3.7/site-packages/jinja2/lexer.py", line 384, in expect
     self.name, self.filename)
-jinja2.exceptions.TemplateSyntaxError: expected token 'end of statement block', got '='
-2019-10-23 23:59:28,492 INFO: Microblog startup [in /home/orillion/CODING/HTBAH_Character_Creator/app/__init__.py:84]
+jinja2.exceptions.TemplateSyntaxError: expected token 'end of print statement', got '='
+2019-10-24 11:55:00,679 INFO: Microblog startup [in /home/orillion/CODING/HTBAH_Character_Creator/app/__init__.py:84]
